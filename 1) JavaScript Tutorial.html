@@ -1,0 +1,5296 @@
+<!-- __________ WHERE TO PUT JavaScript? __________ -->
+
+<!-- *The <script> Tag* -->
+<!-- In HTML, JavaScript code is inserted between <script> and </script> tags -->
+<!-- 
+    Old JavaScript examples may use a type attribute: <script type="text/javascript">
+    The type attribute is not required. JavaScript is the default scripting language in HTML
+-->
+<body>
+    <p id="deneme1"></p>
+    <script>
+        document.getElementById("deneme1").innerHTML = "My First JavaScript";
+    </script>
+</body>
+
+
+
+
+
+
+<!-- *JavaScript Functions and Events* -->
+<!-- A JavaScript "function" is a block of JavaScript code, that can be executed when "called" for -->
+<!-- For example, a function can be called when an event occurs, like when the user clicks a button -->
+
+
+
+
+<!-- *JavaScript in <head> or <body>?* -->
+<!-- You can place any number of scripts in an HTML document  -->
+<!-- Scripts can be placed in the <body>, or in the <head> section of an HTML page, or in both -->   
+
+
+<!-- JavaScript in <head>: -->
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function myFunction1() {
+            document.getElementById("demo1").innerHTML = "Paragraph changed.";
+        }
+    </script>
+</head>
+<body>
+    <h2>JavaScript in Head</h2>
+    <p id="demo1">A Paragraph.</p>
+    <button type="button" onclick="myFunction1()">Try it</button>
+</body>
+</html> 
+
+
+<!-- JavaScript in <body>: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript in Body</h2>
+    <p id="demo2">A Paragraph.</p>
+    <button type="button" onclick="myFunction2()">Try it</button>
+    <script>
+        function myFunction2() {
+            document.getElementById("demo2").innerHTML = "Paragraph changed.";
+        }
+    </script>
+</body>
+</html> 
+
+
+
+
+<!-- *External JavaScript* -->
+<!-- Scripts can also be placed in external files -->
+<!-- External scripts are practical when the same code is used in many different web pages -->
+<!-- JavaScript files have the file extension .js -->
+<!-- To use an external script, put the name of the script file in the src (source) attribute of a <script> tag -->
+<!-- You can place an external script reference in <head> or <body> as you like -->
+<head>
+    <script src="myScript.js"></script>
+</head>
+
+
+<!-- 
+    myScript.js will look like this:
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Paragraph changed.";
+    }
+-->
+
+
+
+
+<!-- *External JavaScript Advantages* -->
+<!-- 
+    Placing scripts in external files has some advantages:
+    *It separates HTML and code
+    *It makes HTML and JavaScript easier to read and maintain
+    *Cached JavaScript files can speed up page loads
+-->
+<!-- To add several script files to one page  - use several script tags: -->
+<script src="myScript1.js"></script>
+<script src="myScript2.js"></script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JavaScript OUTPUT __________ -->
+
+<!-- *JavaScript Display Possibilities* -->
+<!-- 
+    JavaScript can "display" data in different ways:
+    1)Writing into an HTML element, using "innerHTML"
+    2)Writing into the HTML output using "document.write()"
+    3)Writing into an alert box, using "alert()"
+    4)Writing into the browser console, using "console.log()"
+-->
+
+
+<!-- 1)Using innerHTML -->
+<!-- To access an HTML element, JavaScript can use the document.getElementById("id") method -->
+<!-- The "id" attribute defines the HTML element. The "innerHTML" property defines the HTML content -->
+<!-- Changing the innerHTML property of an HTML element is a common way to display data in HTML -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>My First Paragraph.</p>
+    <p id="demo"></p>
+    <script>
+        document.getElementById("demo").innerHTML = 5 + 6;
+    </script>
+</body>
+</html> 
+
+
+
+
+<!-- 2)Using document.write() -->
+<!-- For testing purposes, it is convenient to use document.write() -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>My first paragraph.</p>
+    <script>
+        document.write(5 + 6);
+    </script>
+</body>
+</html>
+
+
+<!-- Using document.write() after an HTML document is loaded, will delete all existing HTML -->
+<!-- The document.write() method should only be used for testing -->
+<!-- "try it" butonuna tıkladığımız zaman sayfa tamamen silinip 11 yazdırır -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>My first paragraph.</p>
+    <button type="button" onclick="document.write(5 + 6)">Try it</button>
+</body>
+</html>
+
+
+
+
+<!-- 3)Using alert() -->
+<!-- You can use an alert box to display data -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>My first paragraph.</p>
+    <script>
+        alert(5 + 6);    // window.alert de yazılabilir. Popup çeşitlerinden biridir
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 4)Using console.log() -->
+<!-- For debugging purposes, you can call the console.log() method in the browser to display data -->
+<!-- You will learn more about debugging in a later chapter -->
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        console.log(5 + 10);   // F12 ye basıp console ekranını açtığımızda o kısımda 15 diye yazdırır. Sayfada gözükmez
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *JavaScript Print* -->
+<!-- JavaScript does not have any print object or print methods -->
+<!-- You cannot access output devices from JavaScript -->
+<!-- The only exception is that you can call the window.print() method in the browser to print the content of the current window -->
+<!-- Bildiğimiz çıktıdan yazdırma işlemi yapar (CTRL + P)-->
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="window.print()">Print this page</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS STATEMENTS __________ -->
+
+<script>
+    var x, y, z;    // Statement 1
+    x = 5;          // Statement 2
+    y = 6;          // Statement 3
+    z = x + y;      // Statement 4
+</script>
+
+
+
+
+<!-- *JavaScript Statements* -->
+<!-- 
+    JavaScript statements are composed of:
+    Values, Operators, Expressions, Keywords, and Comments
+-->
+
+<!-- This statement tells the browser to write "Hello Dolly" inside an HTML element with id="demo3": -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Statements</h2>
+    <p id="demo3"></p>
+    <script>
+        document.getElementById("demo3").innerHTML = "Hello Dolly";
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *Semicolons* -->
+<!-- Semicolons separate JavaScript statements -->
+<script>
+    var a, b, c;     // Declare 3 variables
+    a = 5;           // Assign the value 5 to a
+    b = 6;           // Assign the value 6 to b
+    c = a + b;       // Assign the sum of a and b to c
+</script>
+
+
+<!-- When separated by semicolons, multiple statements on one line are allowed -->
+<script>
+    var a, b, c;
+    a = 5; b = 6; c = a + b;
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS SYNTAX __________ -->
+<!-- JavaScript syntax is the set of rules, how JavaScript programs are constructed: -->
+
+
+<!-- *JavaScript Values* -->
+<!-- 
+    The JavaScript syntax defines two types of values: Fixed values and variable values 
+    1)Fixed values are called "literals" 
+    2)Variable values are called "variables" 
+-->
+
+
+<!-- 1)JavaScript Literals -->
+<!-- "Numbers" can be written with or without decimals -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Numbers</h2>
+    <p id="demo4"></p>
+    <script>
+        document.getElementById("demo4").innerHTML = 10.50;
+    </script>
+</body>
+</html>
+
+
+<!-- "Strings" are text, written within double or single quotes: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Numbers</h2>
+    <p id="demo5"></p>
+    <script>
+        document.getElementById("demo5").innerHTML = "Ahmet Sami Yeniçeri";
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 2)JavaScript Variables -->
+<!-- In a programming language, variables are used to store data values -->
+<!-- JavaScript uses the "var" keyword to declare variables -->
+<!-- An equal sign is used to assign values to variables -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Variables</h2>
+    <p id="demo6"></p>
+    <script>
+        var x;
+        x = 6;
+        document.getElementById("demo6").innerHTML = x;
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *JavaScript Operators* -->
+<!-- JavaScript uses arithmetic operators ( + - * / ) to compute values -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Operators</h2>
+    <p id="demo7"></p>
+    <script>
+        document.getElementById("demo7").innerHTML = (5 + 6) * 10;
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *JavaScript Expressions* -->
+<!-- An expression is a combination of values, variables, and operators, which computes to a value -->
+<!-- 5 * 10 evaluates to 50: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Expressions</h2>
+    <p id="demo8"></p>
+    <script>
+        document.getElementById("demo8").innerHTML = 5 * 10;
+    </script>
+</body>
+</html>
+
+
+<!-- Expressions can also contain variable values: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Expressions</h2>
+    <p id="demo9"></p>
+    <script>
+        var x = 30;
+        document.getElementById("demo9").innerHTML = x * 10;
+    </script>
+</body>
+</html>
+
+
+<!-- The values can be of various types, such as numbers and strings -->
+<!-- "Ahmet" + "Sami" + "Yeniçeri" evaluates to "Ahmet Sami Yeniçeri -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Expressions</h2>
+    <p id="demo10"></p>
+    <script>
+        document.getElementById("demo10").innerHTML = "Ahmet " + "Sami " + "Yeniçeri";
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *JavaScript is Case Sensitive* -->
+<!-- All JavaScript identifiers are case sensitive -->
+<!-- The variables LastName and lastname, are two different variables: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Expressions</h2>
+    <p id="demo11"></p>
+    <script>
+        var LastName, lastname;
+        LastName = "Yeniçeri";
+        lastname = "Kopuz";
+        document.getElementById("demo11").innerHTML = lastname;    // Output: Kopuz
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS VARIABLES __________ -->
+<!-- In this example, x, y, z and t are variables: -->
+<script> 
+    var x = 5;         // Variable stores numeric value
+    var y = "six";     // Variable stores string value
+    var z = x + y;
+    var t;         // Declared variable without assingning a value (değeri undefined olur)
+</script>
+
+
+
+
+<!-- *JavaScript Identifiers* -->
+<!-- All JavaScript variables must be identified with unique names -->
+<!-- These unique names are called identifiers -->
+<!-- Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume) -->
+<!-- 
+    The general rules for constructing names for variables (unique identifiers) are:
+    *Names can contain letters, digits, underscores, and dollar signs.
+    *Names must begin with a letter
+    *Names can also begin with $ and _ (but we will not use it in this tutorial)
+    *Names are case sensitive (y and Y are different variables)
+    *Reserved words (like JavaScript keywords) cannot be used as names
+-->
+
+
+
+
+<!-- *One Statement, Many Variables* -->
+<!-- You can declare many variables in one statement -->
+<!-- Start the statement with "var" and separate the variables by comma -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>One Statement, Many Variable</h2>
+    <p id="demo12"></p>
+    <script>
+        var person = "John Doe", carName = "Volvo", price = 200;
+        document.getElementById("demo12").innerHTML = carName;
+    </script>
+</body>
+</html>
+
+
+<!-- A declaration can span multiple lines: -->
+<script>
+    var person = "John Doe",
+    carName = "Volvo",
+    price = 200;
+</script>
+
+
+
+
+<!-- NOTE: If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated -->
+<script>
+    var x = "5" + 2 + 3    //523 yazdırır
+</script>
+
+
+<!-- NOTE: Eğer string biçiminde yazılan sayı, int olarak yazılan sayılardan sonra gelirse int'ler toplanır ve sonuna string olarak yazılan gelir -->
+<script>
+    var x = 2 + 3 + "5"    //55 yazdırır
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS ARITHMETIC __________ -->
+
+<!-- *Exponentiation (Üs)* -->
+<!-- We use "**" for it: -->
+<script>
+    var x = 5;
+    var z = x ** 2;    // 25
+</script>
+
+
+<!-- We can also use "Math.pow()" for it: -->
+<script>
+    var x = 5;
+    var z = Math.pow(x, 2);   // 25
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS DATATYPES __________ -->
+
+<!-- *JavaScript Arrays* -->
+<!-- JavaScript arrays are written with square brackets -->
+<!-- Array items are separated by commas -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Arrays</h2>
+    <p id="demo13"></p>
+    <script>
+        var cars = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo13").innerHTML = cars[0];   // Saab
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *JavaScript Objects* -->
+<!-- JavaScript objects are written with curly braces -->
+<!-- Object properties are written as name:value pairs, separated by commas -->
+<!-- Süslü parantezlerin sonuna ";" konur -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Objects</h2>
+    <p id="demo14"></p>
+    <script>
+        var person = {
+            firstName: "Ahmet",
+            lastName: "Yeniceri",
+            age: 22,
+            eyeColor: "Brown"      
+        };
+
+        document.getElementById("demo14").innerHTML =
+        person.firstName + person.lastName + " is " + person.age + " years old.";
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *The typeof Operator* -->
+<!-- You can use the JavaScript typeof operator to find the type of a JavaScript variable -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript typeof</h2>
+    <p id="demo15"></p>
+    <script>
+        document.getElementById("demo15").innerHTML = 
+        typeof 0 + "<br>" +           // number
+        typeof "asd" + + "<br>" +     // string
+        typeof 3.14 + "<br>" +        // number
+        typeof (3) + "<br>" +         // number
+        typeof (3 + 4);               // number
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS FUNCTIONS __________ -->
+<!-- A JavaScript function is executed when "something" invokes it (calls it) -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="demo16"></p>
+    <script>
+        function myFunction(p1, p2) {
+            return p1 * p2;
+        }
+
+        document.getElementById("demo16").innerHTML = myFunction(4, 5);
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *JavaScript Function Syntax* -->
+<!-- A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses () -->
+<script>
+    function name(parameter1, parameter2, parameter3) {
+        // code to be executed
+    }
+</script>
+
+
+
+
+<!-- *Function Return* -->
+<!-- When JavaScript reaches a return statement, the function will stop executing -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Functions</h2>
+    <p id="demo17"></p>
+    <script>
+        var x = myFunction(4, 3);
+        document.getElementById("demo17").innerHTML = x;
+
+        function myFunction(a, b) {
+            return a * b;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *Functions Used as Variable Values* -->
+<!-- Functions can be used the same way as you use variables, in all types of formulas, assignments, and calculations -->
+<!-- Instead of using a variable to store the return value of a function: -->
+<script>
+    var x = toCelsius(77);
+    var text = "The temperature is " + x + " Celsius";        
+</script>
+
+
+<!-- You can use the function directly, as a variable value: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Functions</h2>
+    <p id="demo18"></p>
+    <script>
+        document.getElementById("demo18").innerHTML =
+        "The temperature is " + toCelsius(77) + " Celsius";
+
+        function toCelsius(fahrenheit) {
+            return (5/9) * (fahrenheit-32);     // (5/9)*(77-32)
+        } 
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *Local Variables* -->
+<!-- Variables declared within a JavaScript function, become LOCAL to the function -->
+<!-- Local variables can only be accessed from within the function -->
+
+<script>
+// code here can NOT use carName
+
+function myFunction() {
+    var carName = "Volvo";      // code here CAN use carName
+}
+
+// code here can NOT use carName
+</script>
+
+
+<!-- Example: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Functions</h2>
+    <p id="demo19"></p>
+    <p id="demo20"></p>
+    <script>
+        myFunction();
+
+        function myFunction() {
+            var carName = "Volvo";
+            document.getElementById("demo19").innerHTML = typeof carName + " " + carName;    // string Volvo
+        }
+
+        document.getElementById("demo20").innerHTML = typeof carName;    // undefined
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS OBJECTS __________ -->
+<!-- Süslü parantezlerin sonuna ";" konması daha doğru bir yoldur -->
+<!-- You have already learned that JavaScript variables are containers for data values -->
+<!-- This code assigns a simple value (Fiat) to a variable named car: -->
+<script>
+    var car = "Fiat";
+</script>
+
+
+<!-- Objects are variables too. But objects can contain many values -->
+<!-- This code assigns many values (Fiat, 500, white) to a variable named car: -->
+<script>
+    var car = {
+        type: "Fiat",
+        model: "500", 
+        color: "white"
+    };
+</script>
+
+
+
+
+<!-- *Object Definition* -->
+<!-- You define (and create) a JavaScript object with an object literal: -->
+<!-- Aşağıdaki gibi tek satırda yazılabilir -->
+<script>
+    var person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+</script>
+
+
+
+
+<!-- *Accessing Object Properties* -->
+<!-- You can access object properties in two ways: -->
+<!-- Assume that we have an object named "person" and our property value is "name" -->
+
+<!-- First way: -->
+person.name;
+
+<!-- Second way: -->
+person["name"];
+
+
+<!-- Example: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Objects</h2>
+    <p id="demo21"></p>
+    <script>
+        var person = {
+            firstName: "Ahmet",
+            lastName: "Yeniçeri",
+            id: 5566
+        };
+
+        document.getElementById("demo21").innerHTML =
+        person.firstName + " " + person.lastName;
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *Object Methods* -->
+<!-- Objects can also have "methods" -->
+<!-- Methods are "actions" that can be performed on objects -->
+<!-- Methods are stored in properties as "function definitions" -->
+<!-- Bir alt başlıkta object method'una ulaşmayı görcez -->
+<script>
+    var person = {
+        firstName: "John",
+        lastName: "Doe",
+        id: 5566,
+        fullName: function() {    //Object Method
+            return this.firstName + " " + this.lastName; 
+        }   
+    };
+</script>
+
+
+<!-- NOTE: "this" Keyword -->
+<!-- In a function definition, "this" refers to the "owner" of the function -->
+<!-- In the example above, this is the person object that "owns" the fullName function -->
+<!-- In other words, this.firstName means the firstName property of this object -->
+
+
+
+
+<!-- *Accessing Object Methods* -->
+<!-- You access an object method with the following syntax: -->
+objectName.methodName();
+
+
+<!-- Example: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Objects</h2>
+    <p id="demo22"></p>
+    <script>
+        var person = {
+            firstName: "Ahmet",
+            lastName: "Yeniçeri",
+            id: 5566,
+            fullName: function() {      //buraya ulaşacağız
+                return this.firstName + " " + this.lastName;
+            }
+        };
+
+        document.getElementById("demo22").innerHTML = person.fullName();
+    </script>
+</body>
+</html>
+
+
+<!-- NOTE: If you access a method without the () parentheses, it will return the function definition: -->
+<!-- Fonksiyonun içindeki tanımlamayı yazdırır. Bu da işe yarayan bir şey değildir -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Objects</h2>
+    <p id="demo23"></p>
+    <script>
+        var person = {
+            firstName: "Ahmet",
+            lastName: "Yeniçeri",
+            id: 5566,
+            fullName: function() {      
+                return this.firstName + " " + this.lastName;
+            }
+        };
+
+        document.getElementById("demo23").innerHTML = person.fullName;   //parantez yok fullName'den sonra
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- "new Object()" Yöntemiyle Obje Oluşturma -->
+<script>
+    var person = new Object();
+
+    person.name = "Ahmet Sami";
+    person.lastName = "Yeniçeri";
+    person.age = 22;
+    person.fullName = function() {
+        return this.name + this.lastName;
+    }
+
+    document.getElementById("demo").innerHTML = person.fullName();
+</script>
+
+
+
+
+<!-- *Constructor Pattern Kullanımı* -->
+<!-- Bir yukarıdaki yöntemde tek bir obje oluşturmak için çok fazla vakit kaybı yaşarız. O yüzden bu yöntem daha iyidir -->
+<body>
+    <script>
+        function Person(name, lastName, age, nationality) {
+            this.name = name;
+            this.lastName = lastName;
+            this.age = age;
+            this.nationality = nationality;
+            this.fullInfo = function() {
+                return "Name: " + this.name + "\nLast Name: " + this.lastName + "\nAge: " + this.age + "\nNationality: " + this.nationality;
+            }
+        }
+            
+        var person1 = new Person("Ahmet", "Yeniçeri", 22, "Turkey");
+        var person2 = new Person("Alperen", "Kopuz", 21, "Turkey");
+        var person3 = new Person("Alessio", "Sanna", 23, "Italy");
+    
+        console.log(person1.fullInfo());
+        console.log(person2.fullInfo());
+        console.log(person3.fullInfo());
+    </script>
+</body>
+
+
+
+
+<!-- *Do Not Declare Strings, Numbers, and Booleans as Objects!* -->
+<!-- When a JavaScript variable is declared with the keyword "new", the variable is created as an object: -->
+<!-- Avoid String, Number, and Boolean objects. They complicate your code and slow down execution speed -->
+<script>
+    var x = new String();        // Declares x as a String object
+    var y = new Number();        // Declares y as a Number object
+    var z = new Boolean();       // Declares z as a Boolean object
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS EVENTS __________ -->
+<!-- HTML events are "things" that happen to HTML elements -->
+<!-- When JavaScript is used in HTML pages, JavaScript can "react" on these events -->
+
+
+<!-- *HTML Events* -->
+<!-- An HTML event can be something the browser does, or something a user does -->
+<!--
+    Here are some examples of HTML events:
+    *An HTML web page has finished loading
+    *An HTML input field was changed
+    *An HTML button was clicked
+-->
+<!-- Often, when events happen, you may want to do something -->
+<!-- JavaScript lets you execute code when events are detected -->
+<!-- HTML allows event handler attributes, with JavaScript code, to be added to HTML elements -->
+<element event="some JavaScript">
+
+
+
+
+<!-- In the following example, an onclick attribute (with code), is added to a <button> element: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="demo24"></p>
+    <button onclick="document.getElementById('demo24').innerHTML=Date()">What time is it?</button>
+</body>
+</html><br><br><br>
+
+
+
+
+<!-- In the example above, the JavaScript code changes the content of the element with id="demo" -->
+<!-- In the next example, the code changes the content of its own element (using this.innerHTML) -->
+<!-- Butonda gözükecek tarih. Yukarıdakinde butona basınca altında gözüküyordu -->
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="this.innerHTML=Date()">What time is it?</button>
+</body>
+</html>
+
+
+
+
+<!-- JavaScript code is often several lines long. It is more common to see event attributes calling functions: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Click the button to display the date.</p>
+    <p id="demo25"></p>
+    <button onclick="displayDate()">What time is it?</button>
+    <script>
+        function displayDate() {
+            document.getElementById("demo25").innerHTML = Date();
+        }
+    </script>
+</body>
+</html> 
+
+
+
+
+<!-- *Butonda InnerHtml Kullanımı* -->
+<body>
+    <h1>BUTONDA INNERHTML KULLANIMI</h1>
+    <button onclick="this.innerHTML = 'Butona Tıkladınız...'">Click it tatlısı</button>
+</body>
+
+
+<!-- Şu yöntemle daha düzenli olur: -->
+<body>
+    <button onclick="Click(this)">Click it canısı</button>
+    <script>
+        function Click(element) {
+            element.innerHTML = "Butona Tıkladınız...";
+        }
+    </script>
+</body>
+
+
+
+
+<!-- *Common HTML Events* -->
+<!--
+    onchange:	  An HTML element has been changed
+    onclick:	  The user clicks an HTML element
+    onmouseover:  The user moves the mouse over an HTML element
+    onmouseout:	  The user moves the mouse away from an HTML element
+    onkeydown:	  The user pushes a keyboard key
+    onload:	      The browser has finished loading the page
+-->
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS STRINGS __________ -->
+<!-- A JavaScript string is zero or more characters written inside quotes -->
+<!-- You can use single or double quotes -->
+<script>
+    var x = "Ahmet Yeniçeri";
+    var y = 'Ahmet Yeniçeri';
+</script>
+
+
+<!-- You can use quotes inside a string, as long as they don't match the quotes surrounding the string: -->
+<script>
+    var x = "Onun adı 'Ahmet'";
+    var y = 'Onun adı "Ahmet"';
+</script>
+
+
+
+
+<!-- *String Length* -->
+<!-- To find the length of a string, use the built-in "length" property -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript String Properties</h2>
+    <p id="demo26"></p>
+    <script>
+        var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.getElementById("demo").innerHTML = txt.length;
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *Escape Character* -->
+<!-- Because strings must be written within quotes, JavaScript will misunderstand this string: -->
+<!-- The string will be chopped to "We are the so-called " -->
+var x = "We are the so-called "Vikings" from the north";
+
+<!-- 
+    The solution to avoid this problem, is to use the backslash escape character 
+    CODE      RESULT     DESCRIPTION
+    \'          '        Single quote
+    \"          "        Double quote
+    \\          \        Backslash
+-->
+
+
+<!-- Examples: -->
+<script>
+    var x = "His name is \"Ahmet\" from Istanbul";   //His name is "Ahmet" from Istanbul
+</script>
+
+
+<script>
+     var x = 'It\'s alright';    //It's alright
+</script>
+
+
+<!-- 
+    Six other escape sequences are valid in JavaScript:
+    \b	 Backspace
+    \f	 Form Feed
+    \n	 New Line
+    \r	 Carriage Return
+    \t	 Horizontal Tabulator
+    \v	 Vertical Tabulator
+-->
+
+
+
+
+<!-- *Strings Can be Objects* -->
+<!-- String objesi oluşturmak önerilmez! -->
+<!-- Normally, JavaScript strings are primitive values, created from literals: -->
+var firstName = "John";
+
+<!-- But strings can also be defined as objects with the keyword "new"-->
+var firstName = new String("John");
+
+<script>
+    var x = "Ahmet";               // typeof x will return string
+    var y = new String("Ahmet");   // typeof y will return object
+</script>
+
+
+
+
+<!-- When using the "==" operator, equal strings are equal: -->
+<script>
+    var x = "John";             
+    var y = new String("John");
+    // (x == y) is true because x and y have equal values
+</script>
+
+
+<!-- When using the === operator, equal strings are not equal, because the === operator expects equality in both type and value. -->
+<script>
+    var x = "John";             
+    var y = new String("John");
+    // (x === y) is false because x and y have different types (string and object)
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS STRING METHODS __________ -->
+<!-- String methods help you to work with strings -->
+
+
+<!-- *String Length* -->
+<!-- The "length" property returns the length of a string -->
+<script>
+    var txt = "ABCDEFGHJK";
+    var sln = txt.length;
+</script>
+
+
+
+
+<!-- *Finding a String in a String* -->
+<!-- JavaScript counts positions from zero -->
+<!-- The indexOf() method returns the index of (the position of) the "first" occurrence of a specified text in a string -->
+<script>
+    var str = "Find the location of the word locate";
+    var pos = str.indexOf("locate");   // 30 olur. "d" den sonraki boşluk da yer tutuyor
+</script>
+
+
+<!-- The lastIndexOf() method returns the index of the last occurrence of a specified text in a string: -->
+<script>
+    var str = "Locate is the word we search";
+    var pos = str.lastIndexOf("locate");
+</script>
+
+
+<!-- NOTE: Both indexOf() and lastIndexOf() return -1 if the text is not found -->
+
+
+
+
+<!-- Both methods accept a second parameter as the starting position for the search: -->
+<script>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.indexOf("locate", 15);
+</script>
+
+<script>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.indexOf("locate", 15);
+</script>
+
+
+
+
+<!-- *Searching for a String in a String* -->
+<!-- The "search()" method searches a string for a specified value and returns the position of the match: -->
+<script>
+    var str = "Find the location of the word Fenerbahçe";
+    var pos = str.search("Fenerbahçe");
+</script>
+
+
+<!--
+    The two methods, indexOf() and search() are not equal!
+    The search() method cannot take a second start position argument
+    The indexOf() method cannot take powerful search values (regular expressions)
+-->
+
+
+
+
+<!-- *Extracting String Parts* -->
+<!--
+    There are 3 methods for extracting a part of a string:
+    1)slice(start, end)
+    2)substring(start, end)
+    3)substr(start, length)
+-->
+
+
+<!-- 1)The slice() Method -->
+<!-- slice() extracts a part of a string and returns the extracted part in a new string -->
+<!-- The method takes 2 parameters: the start position, and the end position (end not included) -->
+<!-- (7,13) yazarsa 7 dahil, 13 hariç olur -->
+<script>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.slice(7, 13);     //Banana yazdırır
+</script>
+
+
+<!-- If a parameter is negative, the position is counted from the end of the string -->
+<script>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.slice(-12, -6);   //Banana yazdırır
+</script>
+
+
+<!-- Eğer parametrede 2. değeri belirtmezsek ilk değerden sonrasını komple alır -->
+<script>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.slice(7);        //Banana, Kivi yazdırır
+</script>
+
+
+
+
+<!-- 2)The substring() Method -->
+<!-- substring() is similar to slice() -->
+<!-- The difference is that substring() cannot accept "negative" indexes -->
+<script>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.substring(7, 13);     //Banana yazdırır
+</script>
+
+
+
+
+<!-- 3)The substr() Method -->
+<!-- substr() is similar to slice() -->
+<!-- The difference is that the second parameter specifies the "length" of the extracted part -->
+<script>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.substr(7, 6);    // Banana yazdırır
+</script>
+
+
+
+
+<!-- *Replacing String Content* -->
+<!-- The replace() method replaces a specified value with another value in a string -->
+<!-- The replace() method does not change the string it is called on. It returns a new string -->
+<script>
+    str = "Please visit Microsoft!";
+    var n = str.replace("Microsoft", "W3Schools");    // Microsoft'u silip W3Schools'u yazdırır
+</script>
+
+
+<!-- Example: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo27">Please visit Microsoft!</p>
+    <script>
+        function myFunction() {
+            var str = document.getElementById("demo27").innerHTML; 
+            var txt = str.replace("Microsoft","W3Schools");
+            document.getElementById("demo27").innerHTML = txt;
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- By default, the replace() method replaces only the first match: -->
+<script>
+    str = "Please visit Microsoft and Microsoft!";
+    var n = str.replace("Microsoft", "W3Schools");    // Sadece ilk Microsoft yazısı değişir 
+</script>
+
+
+<!-- To replace all matches, use a regular expression with a /g flag (global match) -->
+<script>
+    str = "Please visit Microsoft and Microsoft!";
+    var n = str.replace(/Microsoft/g, "W3Schools");   // Tüm Microsoft yazıları değişir
+</script>
+
+
+<!-- By default, the replace() method is case sensitive: -->
+<script>
+    str = "Please visit Microsoft!";
+    var n = str.replace("MICROSOFT", "W3Schools");    // Yazıyı değiştirmez
+</script>
+
+
+
+
+<!-- *Converting to Upper and Lower Case* -->
+<!-- A string is converted to upper case with toUpperCase() -->
+<script>
+    var text1 = "hello world";
+    var text2 = text1.toUpperCase();
+</script>
+
+
+<!-- A string is converted to lower case with toLowerCase() -->
+<script>
+    var text1 = "HELLO WORLD";
+    var text2 = text2.toLowerCase();
+</script>
+
+
+
+
+<!-- *String.trim()* -->
+<!-- The trim() method removes whitespace from both sides of a string: -->
+<script>
+    var str = "       Hello World!        ";
+    //alert(str.trim());
+</script>
+
+
+
+
+<!-- *Extracting String Characters* -->
+<!-- 
+    There are 3 methods for extracting string characters:
+    1)charAt(position)
+    2)charCodeAt(position)
+    3)Property access [ ]
+-->
+
+
+<!-- 1)The charAt() Method -->
+<!-- The charAt() method returns the character at a specified index (position) in a string -->
+<script>
+    var str = "HELLO WORLD";
+    str.charAt(0);            // returns H
+</script>
+
+
+
+
+<!-- 2)The charCodeAt() Method -->
+<!-- The charCodeAt() method returns the unicode of the character at a specified index in a string -->
+<script>
+    var str = "HELLO WORLD";
+    str.charAt(0);            // returns 72
+</script>
+
+
+
+
+<!-- 3)Property Access -->
+<!-- ECMAScript 5 (2009) allows property access [ ] on strings -->
+<script>
+    var str = "Hello World";
+    str[4];                     //returns o
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS NUMBERS __________ -->
+<!-- JavaScript has only one type of number. Numbers can be written with or without decimals -->
+<script>
+    var x = 3;
+    var y = 4.543;
+</script>
+
+
+<!-- Extra large or extra small numbers can be written with scientific (exponent) notation: -->
+<script>
+    var x = 123e5;     // 12300000
+    var y = 123e-5;    // 0.00123
+</script>
+
+
+
+
+<!-- *JavaScript Numbers are Always 64-bit Floating Point* -->
+<!-- Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc -->
+<!-- JavaScript numbers are always stored as double precision floating point numbers, following the international IEEE 754 standard -->
+<!-- This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63 -->
+
+
+
+
+<!-- *Precision* -->
+<!-- Integers (numbers without a period or exponent notation) are accurate up to 15 digits -->
+<script>
+    var x = 999999999999999;      // x will be 999999999999999
+    var y = 9999999999999999;     // y will be 10000000000000000
+</script>
+
+
+<!-- The maximum number of decimals is 17, but floating point arithmetic is not always 100% accurate: -->
+<script>
+    var x = 0.2 + 0.1;     // x will be 0.30000000000004
+</script>
+
+
+<!-- To solve the problem above, it helps to multiply and divide: -->
+<script>
+    var x = (0.2 * 10 + 0.1 * 10) / 10;     // x will be 0.3
+</script>
+
+
+<!-- If you add two strings, the result will be a string concatenation: -->
+<script>
+    var x = "10";
+    var y = "20";
+    var z = x + y;          // z will be 1020 (a string)
+</script>
+
+
+<!-- String değeri sayılardan sonra gelirse: -->
+<script>
+    var x = 10;
+    var y = 20;
+    var z = "30";
+    var t = x + y + z;      // t will be 3030
+</script>
+
+
+<!-- String değeri sayılardan önce gelirse: -->
+<script>
+    var x = "10";
+    var y = 20;
+    var z = 30;
+    var t = x + y + z;      // t will be 102030
+</script>
+
+
+
+
+<!-- *Numeric Strings* -->
+<!-- JavaScript strings can have numeric content -->
+<!-- JavaScript will try to convert strings to numbers in all numeric operations -->
+
+<!-- This will work: -->
+<script>
+    var x = "100";
+    var y = "10";
+    var z = x / y;     // z will be 10
+</script>
+
+
+<!-- This will also work: -->
+<script>
+    var x = "100";
+    var y = "10";
+    var z = x * y;     // z will be 1000
+</script>
+
+
+<!-- But this will not work: -->
+<script>
+    var x = "10";
+    var y = "10";
+    var z = x + y;     // z will be 1010
+</script>
+
+
+
+
+<!-- *NaN - Not a Number* -->
+<!-- "NaN" is a JavaScript reserved word indicating that a number is not a legal number -->
+<!-- Trying to do arithmetic with a non-numeric string will result in NaN (Not a Number) -->
+<script>
+    var x = 100 / "apple";     // x will be NaN 
+</script>
+
+
+<!-- However, if the string contains a numeric value , the result will be a number: -->
+<script>
+    var x = 100 / "10";        // x will be 10
+</script>
+
+
+<!-- Watch out for NaN. If you use NaN in a mathematical operation, the result will also be NaN -->
+<script>
+    var x = NaN;
+    var y = 5;
+    var z = x + y;      // z will be NaN
+</script>
+
+
+<!-- Or the result might be a concatenation: -->
+<script>
+    var x = Nan;
+    var y = "5";
+    var z = x + y;     // z will be Nan5
+</script>
+
+
+<!-- NaN is a number: typeof NaN returns number: -->
+<script>
+    typeof NaN;       // returns "number"
+</script>
+
+
+
+
+<!-- *Infinity* -->
+<!-- Infinity (or -Infinity) is the value JavaScript will return if you calculate a number outside the largest possible number -->
+<script>
+    var myNumber = 2;
+    while (myNumber != Infinity) {
+        myNumber = myNumber * myNumber;
+    }
+</script>
+
+
+<!-- Example: -->
+<!DOCTYPE html>
+<html>
+    <body>
+    <h2>JavaScript Infinity</h2>
+    <p id="demo28"></p>
+    <script>
+        var myNumber = 2; 
+        var txt = "";
+
+        while (myNumber != Infinity) {
+            myNumber = myNumber * myNumber;
+            txt = txt + myNumber + "<br>";
+        }
+
+        document.getElementById("demo28").innerHTML = txt;
+    </script>
+</body>
+</html>
+
+
+<!-- Division by 0 (zero) also generates Infinity: -->
+<script>
+    var x = 2 / 0;       // x will be Infinity
+    var y = -2 / 0;      // y will be -Infinity
+</script>
+
+
+<!-- Infinity is a number: typeof Infinity returns number: -->
+<script>
+    typeof Infinity;     // returns "number"
+</script>
+
+
+
+
+<!-- *Numbers Can be Objects* -->
+<!-- Do not create Number objects. It slows down execution speed. The new keyword complicates the code. This can produce some unexpected results -->
+
+<!-- Normally JavaScript numbers are primitive values created from literals: -->
+var x = 123;
+
+<!-- But numbers can also be defined as objects with the keyword "new": -->
+var y = new Number(123);
+
+<script>
+    var x = 123;                  // typeof x returns number
+    var y = new Number(123);      // type of y returns object
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS NUMBER METHODS __________ -->
+
+<!-- *The toString() Method* -->
+<!-- toString() method returns a number as a string -->
+<!-- All number methods can be used on any type of numbers (literals, variables, or expressions) -->
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Number Methods</h2>
+<p id="demo29"></p>
+    <script>
+        var x = 123;
+        document.getElementById("demo29").innerHTML =
+        x.toString() + "<br>" +           // returns 123 from variable x
+        (123).toString() + "<br>" +       // returns 123 from literal 123
+        (100 + 23).toString();            // returns 123 from expression 100 + 23
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *The toExponential() Method* -->
+<!-- toExponential() returns a string, with a number rounded and written using exponential notation -->
+<script>
+    var x = 9.656;
+    x.toExponential(2);     // returns 9.66e+0
+    x.toExponential(4);     // returns 9.6560e+0
+    x.toExponential(6);     // returns 9.656000e+0
+</script>
+
+
+
+
+<!-- *The toFixed() Method* -->
+<!-- toFixed() returns a string, with the number written with a specified number of decimals: -->
+<!-- NOTE: toFixed(2) is perfect for working with money -->
+<script>
+    var x = 9.656;
+    x.toFixed(0);           // returns 10
+    x.toFixed(2);           // returns 9.66
+    x.toFixed(4);           // returns 9.6560
+    x.toFixed(6);           // returns 9.656000
+</script>
+
+
+
+
+<!-- *The toPrecision() Method* -->
+<!-- toPrecision() returns a string, with a number written with a specified length -->
+<script>
+    var x = 9.656;
+    x.toPrecision();        // returns 9.656
+    x.toPrecision(2);       // returns 9.7
+    x.toPrecision(4);       // returns 9.656
+    x.toPrecision(6);       // returns 9.65600
+</script>
+
+
+
+
+<!-- *Converting Variables to Numbers* -->
+<!-- 
+    There are 3 JavaScript methods that can be used to convert variables to numbers:
+    1)The Number() method
+    2)The parseInt() method
+    3)The parseFloat() metho
+-->
+<!-- These methods are not number methods, but global JavaScript methods -->
+
+
+<!-- *Global JavaScript Methods* -->
+<!-- JavaScript global methods can be used on all JavaScript data types -->
+<!--
+    These are the most relevant methods, when working with numbers:
+    Number()	   Returns a number, converted from its argument.
+    parseFloat()   Parses its argument and returns a floating point number
+    parseInt()	   Parses its argument and returns an integer
+-->
+
+
+<!-- 1)The Number() Method -->
+<!-- Number() can be used to convert JavaScript variables to numbers -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Global Methods</h2>
+    <p id="demo30"></p>
+    <script>
+        document.getElementById("demo30").innerHTML = 
+        Number(true) + "<br>" +         // returns 1
+        Number(false) + "<br>" +        // returns 0
+        Number("10") + "<br>" +         // returns 10
+        Number("  10") + "<br>" +       // returns 10
+        Number("10  ") + "<br>" +       // returns 10
+        Number(" 10  ") + "<br>" +      // returns 10
+        Number("10.33") + "<br>" +      // returns 10.33
+        Number("10,33") + "<br>" +      // returns NaN
+        Number("10 33") + "<br>" +      // returns NaN
+        Number("John");                 // returns NaN
+    </script>
+</body>
+</html>
+
+
+<!-- *The Number() Method Used on Dates* -->
+<!-- Number() can also convert a date to a number: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Global Methods</h2>
+    <p id="demo31"></p>
+    <script>
+        var x = new Date("2017-09-30");
+        document.getElementById("demo31").innerHTML = Number(x);       // returns 1506729600000
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 2)The parseInt() Method -->
+<!-- parseInt() parses a string and returns a whole number -->
+<!-- Spaces are allowed. Only the first number is returned -->
+<script>
+    parseInt("10");           // returns 10
+    parseInt("10.33");        // returns 10
+    parseInt("10 20 30");     // returns 10
+    parseInt("10 years");     // returns 10
+    parseInt("years 10");     // returns NaN 
+</script>
+
+
+
+
+<!-- 2)The parseFloat() Method -->
+<!-- parseFloat() parses a string and returns a number -->
+<!-- Spaces are allowed. Only the first number is returned -->
+<script>
+    parseFloat("10");          // returns 10
+    parseFloat("10.33");       // returns 10.33
+    parseFloat("10 20 30");    // returns 10
+    parseFloat("10 years");    // returns 10
+    parseFloat("years 10");    // returns NaN
+</script>
+
+
+
+
+<!-- *Number Properties* -->
+<!-- 
+    1)MAX_VALUE	and MIN_VALUE        
+    2)POSITIVE_INFINITY	and NEGATIVE_INFINITY
+    3)NaN	                
+-->
+
+
+<!-- 1)JavaScript MIN_VALUE and MAX_VALUE -->
+<!-- MAX_VALUE returns the largest possible number in JavaScript -->
+<!-- MIN_VALUE returns the lowest possible number in JavaScript -->
+<script>
+    var x = Number.MAX_VALUE;
+    var y = Number.MIN_VALUE;
+</script>
+
+
+
+
+<!-- 2)JavaScript POSITIVE_INFINITY and NEGATIVE_INFINITY -->
+<!-- Sonsuz ve -Sonsuz değerlerini döndürür -->
+<script>
+    var x = Number.POSITIVE_INFINITY;
+    var y = Number.NEGATIVE_INFINITY;
+</script>
+
+
+
+
+<!-- 3)JavaScript NaN - Not a Number* -->
+<!-- NaN is a JavaScript reserved word indicating that a number is not a legal number -->
+<script>
+    var x = NaN;
+</script>
+
+
+
+
+<!-- NOTE: Number properties cannot be used on variables -->
+<!-- Number properties belongs to the JavaScript's number object wrapper called "Number" -->
+<!-- These properties can only be accessed as Number.MAX_VALUE -->
+<!-- Using myNumber.MAX_VALUE, where myNumber is a variable, expression, or value, will return undefined -->
+<script>
+    var x = 6;
+    var y = x.MAX_VALUE;     // y becomes undefined
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS ARRAYS __________ -->
+<!-- JavaScript arrays are used to store multiple values in a single variable -->
+<script>
+    var cars = ["Saab", "Volvo", "BMW"];
+</script>
+
+
+<!-- Spaces and line breaks are not important. A declaration can span multiple lines: -->
+<script>
+    var cars = [
+        "Saab",
+        "Volvo",
+        "BMW"
+    ];
+</script>
+
+
+
+
+<!-- *Access the Elements of an Array* -->
+<!-- You access an array element by referring to the index number -->
+<script>
+    var cars = ["Audi", "BMW", "Mercedes"];
+    document.getElementById("demo").innerHTML = cars[0];    // returns Audi
+</script>
+
+
+
+
+<!-- *Changing an Array Element* -->
+<!-- This statement changes the value of the first element in cars: -->
+<script>
+    var cars = ["Audi", "BMW", "Mercedes"];
+    cars[0] = "Opel";     // Audi değişerek Opel olur
+</script>
+
+
+
+
+<!-- *Access the Full Array* -->
+<!-- With JavaScript, the full array can be accessed by referring to the array name: -->
+<script>
+    var cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo").innerHTML = cars;
+</script>
+
+
+
+
+<!-- *Arrays are Objects* -->
+<!-- Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays -->
+
+
+<!-- Arrays use numbers to access its "elements" -->
+<script>
+    var person = ["John", "Doe", 46];
+    person[0];           // returns John
+</script>
+
+
+<!-- Objects use names to access its "members" -->
+<script>
+    var person = {firstName:"John", lastName:"Doe", age:46};
+    person.firstName;    // returns John
+</script>
+
+
+
+
+<!-- *Array Elements Can Be Objects* -->
+<!-- JavaScript variables can be objects. Arrays are special kinds of objects -->
+<!-- Because of this, you can have variables of different types in the same Array -->
+<!-- You can have objects in an Array -->
+<!-- You can have functions in an Array -->
+<!-- You can have arrays in an Array: -->
+myArray[0] = Date.now;
+myArray[1] = myFunction;
+myArray[2] = myCars;
+
+
+
+
+<!-- *The length Property* -->
+<!-- The "length" property of an array returns the length of an array (the number of array elements) -->
+<!-- The length property is always one more than the highest array index -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.length;      // Length of the fruits is 4
+</script>
+
+
+
+
+<!-- *Accessing the First Array Element* -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    var first = fruits[0];      // Banana
+</script>
+
+
+<!-- *Accessing the Last Array Element* -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    var last = fruits[fruits.length - 1];
+</script>
+
+
+
+
+<!-- *Looping Array Elements* -->
+<!-- The safest way to loop through an array, is using a "for" loop -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Listing Unordered Array With The For Loop</h2>
+    <p id="demo32"></p>
+    <script>
+        var fruits, flength, text, i;
+        fruits = ["Banana", "Orange", "Apple", "Mango"];
+        flength = fruits.length;
+        
+        text = "<ul>"
+
+        for (i = 0; i < flength; i++) {
+            text += "<li>" + fruits[i] + "</li>";
+        }
+
+        text += "</ul>";
+        document.getElementById("demo32").innerHTML = text;
+    </script>
+</body>
+</html>
+
+
+<!-- You can also use the Array.forEach() function: -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+    fruits.forEach(function(values) {
+        console.log("Values are: " + values);
+    });
+</script>
+
+
+
+
+<!-- *Adding Array Elements* -->
+<!-- The easiest way to add a new element to an array is using the push() method: -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push("Lemon");      // Adds a new element (Lemon) to fruits
+</script>
+
+
+<!-- New element can also be added to an array using the length property: -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[fruits.length] = "Lemon";      
+    // fruits [4] = "Lemon"; olarak da yazılabilirrdi
+</script>
+
+
+
+
+<!-- *The Difference Between Arrays and Objects* -->
+<!-- 
+    In JavaScript, arrays use "numbered" indexes. Arrays are a special kind of objects, with numbered indexes 
+    In JavaScript, objects use "named" indexes
+
+    JavaScript does not support associative arrays
+    You should use objects when you want the element names to be strings (text)
+    You should use arrays when you want the element names to be numbers
+-->
+
+
+
+
+<!-- *Avoid new Array()* -->
+<!-- There is no need to use the JavaScript's built-in array constructor new Array() -->
+<!-- Use [] instead -->
+<!-- These two different statements both create a new empty array named points: -->
+<script>
+    var points = new Array();    // Bad
+    var points = [];             // Good 
+</script>
+
+
+<!-- These two different statements both create a new array containing 6 numbers: -->
+<script>
+    var points = new Array(40, 100, 1, 5, 25, 10);    // Bad
+    var points = [40, 100, 1, 5, 25, 10];             // Good
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS ARRAY METHODS __________ -->
+
+<!-- *Converting Arrays to Strings* -->
+<!-- The JavaScript method toString() converts an array to a string of (comma separated) array values -->
+<!-- Gerekli bir şey değildir. Sadece "fruits" yazsak aynı sonucu verir -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits.toString();
+    // Result: Banana,Orange,Apple,Mango
+</script>
+
+
+
+
+<!-- *Popping and Pushing* -->
+<!-- pop() method removes the last element from an array: -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.pop();     
+    // Removes the last element "Mango" from fruits
+</script>
+
+
+<!-- push() method adds a new element to an array (at the end) -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push("Kiwi");     
+    // Adds a new element "Kiwi" to fruits
+</script>
+
+
+
+
+<!-- *Shift() and Unshift()* -->
+<!-- Shift(), tıpkı pop() metodunda olduğu gibi array'den eleman siler fakat array'in son değil ilk elemanını siler -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.shift();      
+</script>
+
+
+<!-- Unshift(), tıpkı push() metodunda olduğu gibi array'e eleman ekler fakat eklediği eleman array'in son değil ilk elemanı olmuş olur -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.unshift("Lemon");    
+</script>
+
+
+
+
+<!-- *Changing Elements* -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[0] = "Kiwi";     
+    // Changes the first element of fruits to "Kiwi"
+</script>
+
+
+
+
+<!-- *Splicing an Array* -->
+<!-- splice() method can be used to add new items to an array -->
+<!-- First parameter defines the position where new elements should be added (spliced in) -->
+<!-- Second parameter defines how many elements should be removed -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 0, "Lemon", "Kiwi");
+    // Result: Banana,Orange,Lemon,Kiwi,Apple,Mango
+</script>
+
+
+<!-- With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array: -->
+<!-- First parameter defines the position where new elements should be added (spliced in) -->
+<!-- Second parameter defines how many elements should be removed -->
+<!-- The rest of the parameters are omitted. No new elements will be added -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(0, 1);        
+    // Removes the first element of fruits
+    // Result: Orange,Apple,Mango
+</script>
+
+
+
+
+<!-- *Merging (Concatenating) Arrays* -->
+<!-- The concat() method creates a new array by merging (concatenating) existing arrays -->
+<script>
+    var arr1 = ["Cecilie", "Lone"];
+    var arr2 = ["Emil", "Tobias", "Linus"];
+    var arr3 = ["Robin", "Morgan"];
+    var myChildren = arr1.concat(arr2, arr3);   
+    // Concatenates arr1 with arr2 and arr3
+    // Result: Cecilie,Lone,Emil,Tobias,Linus,Robin,Morgan
+</script>
+
+
+<!-- The concat() method can also take strings as arguments: -->
+<script>
+    var arr1 = ["Emil", "Tobias", "Linus"];
+    var myChildren = arr1.concat("Peter");
+    // Result: Emil,Tobias,Linus,Peter
+</script>
+
+
+
+
+<!-- *Slicing an Array* -->
+<!-- The slice() method slices out a piece of an array into a new array -->
+<!-- The slice() method creates a new array. It does not remove any elements from the source array -->
+<script>
+    var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+    var x = fruits.slice(1);
+    // 1. indexten (burada Orange) başlayacak şekilde array'i böler
+    // Result: Orange,Lemon,Apple,Mango
+</script>
+
+
+<!-- The slice() method can take two arguments like slice(1, 3) -->
+<!-- slice(1, 3) olursa 1. indexten başlayıp 3. indexe kadar keser (3 dahil değil) -->
+<script>
+    var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+    var x = fruits.slice(1, 3);
+    // Result: Orange,Lemon
+</script>
+
+
+
+
+<!-- *Automatic toString()* -->
+<!-- JavaScript automatically converts an array to a comma separated string when a primitive value is expected -->
+
+<!-- These two examples will produce the same result: -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits.toString();
+</script>
+
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits;
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS SORTING ARRRAYS __________ -->
+
+<!-- *Sorting an Array* -->
+<!-- sort() method sorts an array alphabetically -->
+<!-- artan şekilde sıralama yapar -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort(); 
+    // Result: Apple,Banana,Mango,Orange
+</script>
+
+
+
+
+<!-- *Reversing an Array* -->
+<!-- reverse() method reverses the elements in an array -->
+<!-- azalan şekilde sıralama yapar -->
+<!-- önce alfabetik sıraya sokulup sonra array'i terse çevirirsek istediğimize ulaşırız -->
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();        // First sort the elements of fruits
+    fruits.reverse();     // Then reverse the order of the elements
+</script>
+
+
+
+
+<!-- *Numeric Sort* -->
+<!-- Numeric sort yaparken ilk rakama bakacağı için "25" i "100" den büyük olarak algılar ve sıralama yanlış olur -->
+<!-- Bu sorunla karşılaşmamak adına "compare function" kullanılmalıdır -->
+
+
+<!-- Artan şekilde sıralama: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Artan şekilde sıralama</h2>
+    <p>Click the button to sort the array in descending order.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo33"></p>
+    <script>
+        var points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo33").innerHTML = points;
+
+        function myFunction() {
+            points.sort(function(a, b) {return a - b});      // Bu kısım önemli (a - b)
+            document.getElementById("demo33").innerHTML = points;
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- Azalan şekilde sıralama: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Azalan şekilde sıralama</h2>
+    <p>Click the button to sort the array in descending order.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo34"></p>
+    <script>
+        var points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo34").innerHTML = points;
+
+        function myFunction() {
+            points.sort(function(a, b) {return b - a});       // Bu kısım önemli (b - a)
+            document.getElementById("demo34").innerHTML = points;
+        }
+</script>
+</body>
+</html>
+
+
+
+
+<!-- *The Compare Function* -->
+<!-- The purpose of the compare function is to define an alternative sort order -->
+<!-- The compare function should return a negative, zero, or positive value, depending on the arguments: -->
+function(a, b) {return a - b}
+
+<!-- When the sort() function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value -->
+<!-- If the result is negative, a is sorted before b -->
+<!-- If the result is positive, b is sorted before a -->
+<!-- If the result is 0 no changes are done with the sort order of the two values -->
+
+<!-- Example: -->
+<!-- 
+    The compare function compares all the values in the array, two values at a time (a, b)
+    When comparing 40 and 100, the sort() method calls the compare function(40, 100).
+    The function calculates 40 - 100 (a - b), and since the result is negative (-60),  the sort function will sort 40 as a value lower than 100
+-->
+
+<!-- You can use this code snippet to experiment with numerically and alphabetically sorting: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Array Sort</h2>
+    <p>Click the buttons to sort the array alphabetically or numerically.</p>
+    <button onclick="myFunction1()">Sort Alphabetically</button>
+    <button onclick="myFunction2()">Sort Numerically</button>
+    <p id="demo35"></p>
+    <script>
+        var points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo35").innerHTML = points;  
+
+        function myFunction1() {
+            points.sort();
+            document.getElementById("demo35").innerHTML = points;
+        }
+
+        function myFunction2() {
+            points.sort(function(a, b){return a - b});
+            document.getElementById("demo35").innerHTML = points;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *Sorting an Array in Random Order* -->
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b) {return 0.5 - Math.random()});
+</script>
+
+
+
+
+<!-- *Find the Highest and Lowest Array Value* -->
+<!-- Önce sıralama yapılır. Sonrasında array'de istenen elemana erişilir -->
+
+<!-- Artan şekilde sıralama: -->
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b) {return a - b});
+    points[0];                   // lowest
+    points[points.length-1];     // highest
+</script>
+
+
+<!-- Azalan şekilde sıralama: -->
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b) {return b - a});
+    points[0];                   // highest
+    points[points.length-1];     // lowest
+</script>
+
+
+
+
+<!-- *Using Math.max() and Math.min() on an Array* -->
+<!-- You can use Math.max.apply to find the highest number in an array: -->
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demo").innerHTML = myArrayMax(points);
+    
+    function myArrayMax(arr) {
+        return Math.max.apply(null, arr);
+    }
+</script>
+
+
+<!-- You can use Math.min.apply to find the lowest number in an array: -->
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demo").innerHTML = myArrayMax(points);
+    
+    function myArrayMax(arr) {
+        return Math.min.apply(null, arr);
+    }
+</script>
+
+
+
+
+<!-- *My Max / Min JavaScript Methods* -->
+<!-- The fastest solution is to use a "home made" method -->
+
+<!-- Find Max: -->
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demo").innerHTML = myArrayMax(points);
+    
+    function myArrayMax(arr) {
+        var len = arr.length;
+        var max = -Infinity;
+
+        while (len--) {
+            if (arr[len] > max) {
+                max = arr[len];
+            }
+        }
+
+        return max;
+    }
+</script>
+
+
+<!-- Find Min: -->
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demo").innerHTML = myArrayMin(points);
+    
+    function myArrayMin(arr) {
+        var len = arr.length;
+        var min = Infinity;
+
+        while (len--) {
+            if (arr[len] < min) {
+                min = arr[len];
+            }
+        }
+
+        return min;
+    }
+</script>
+
+
+
+
+<!-- *Sorting Object Arrays* -->
+<!-- Even if objects have properties of different data types, the sort() method can be used to sort the array -->
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="myFunction()">Sort</button>
+    <p id="demo36"></p>
+
+    <script>
+        var cars = [
+            {type:"Volvo", year:2016},
+            {type:"Saab", year:2001},
+            {type:"BMW", year:2010}
+        ];
+        
+        displayCars();
+        
+        function myFunction() {
+            cars.sort(function(a, b){return a.year - b.year});
+            displayCars();
+        }
+        
+        function displayCars() {
+            document.getElementById("demo36").innerHTML =
+            cars[0].type + " " + cars[0].year + "<br>" +
+            cars[1].type + " " + cars[1].year + "<br>" +
+            cars[2].type + " " + cars[2].year;
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- Comparing string properties is a little more complex: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="myFunction()">Sort</button>
+    <p id="demo37"></p>
+    <script>
+        var cars = [
+            {type:"Volvo", year:2016},
+            {type:"Saab", year:2001},
+            {type:"BMW", year:2010}
+        ];
+
+        displayCars();
+
+        function myFunction() {
+            cars.sort(function(a, b){
+                var x = a.type.toLowerCase();
+                var y = b.type.toLowerCase();
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            });
+            displayCars();
+        }
+
+        function displayCars() {
+            document.getElementById("demo37").innerHTML =
+            cars[0].type + " " + cars[0].year + "<br>" +
+            cars[1].type + " " + cars[1].year + "<br>" +
+            cars[2].type + " " + cars[2].year;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS ARRAY ITERATION (Tekrarlama) __________ -->
+<!-- Array iteration methods operate on every array item -->
+
+
+<!-- 1)Array.forEach() -->
+<!-- forEach() method calls a function (a callback function) once for each array element -->
+<!-- 
+    Note that the function takes 3 arguments:
+    *The item value
+    *The item index
+    *The array itself
+-->
+<script>
+    var txt = "";
+    var numbers = [45, 4, 9, 16, 25];
+    numbers.forEach(myFunction);
+    document.getElementById("demo").innerHTML = txt;
+    
+    function myFunction(value, index, array) {
+        txt = txt + value + "<br>"; 
+    }
+
+    /*
+        Result:
+        45
+        4
+        9
+        16
+        25
+    */
+</script>
+
+
+
+
+<!-- 2)Array.map() -->
+<!-- map() method creates a new array by performing a function on each array element -->
+<!-- map() method does not execute the function for array elements without values -->
+<!-- map() method does not change the original array -->
+<!-- 
+    Note that the function takes 3 arguments:
+    *The item value
+    *The item index
+    *The array itself
+-->
+
+<!-- This example multiplies each array value by 2: -->
+<script>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var numbers2 = numbers1.map(myFunction);
+    
+    document.getElementById("demo").innerHTML = numbers2;
+    
+    function myFunction(value, index, array) {
+        return value * 2;
+    }
+
+    // Result: 90,8,18,32,50
+</script>
+
+
+
+
+<!-- 3)Array.filter() -->
+<!-- filter() method creates a new array with array elements that passes a test -->
+<!-- Adı üstünde filtreleme yapıyor. Mesela bir array'de bulunan tüm tek sayıları bulmak gibi -->
+<!-- 
+    Note that the function takes 3 arguments:11
+    *The item value
+    *The item index
+    *The array itself
+-->
+
+<!-- This example creates a new array from elements with a value larger than 18: -->
+<script>
+    var numbers = [10, 20, 30, 40, 50];
+    var over18 = numbers.filter(myFunction);
+
+    document.getElementById("demo").innerHTML = over18;
+
+    function myFunction(value, index, array) {
+        return value > 18;
+    }
+</script>
+
+
+
+
+<!-- 4)Array.reduce() -->
+<!-- reduce() method runs a function on each array element to produce (reduce it to) a single value -->
+<!-- Örnek olarak array'deki birden çok değeri kullanarak tek bir aritmetik ortalama değeri bulmak -->
+<!--
+    Note that the function takes 4 arguments:
+    *The total (the initial value / previously returned value)
+    *The item value
+    *The item index
+    *The array itself
+-->
+
+<!-- This example finds the sum of all numbers in an array: -->
+<script>
+    var numbers = [10, 20, 40, 80];
+    var sum = numbers.reduce(myFunction);
+
+    document.getElementById("demo").innerHTML = sum;
+
+    function myFunction(total, value, index, array) {
+        return total + value;    // Return 99
+    }
+</script>
+
+
+<!-- Yukarıdaki örnekte index ve array parametreleri kullanılmadığı için şu şekilde de yazılabilir: -->
+<script>
+    var numbers = [10, 20, 40, 80];
+    var sum = numbers.reduce(myFunction);
+
+    document.getElementById("demo").innerHTML = sum;
+
+    function myFunction(total, value) {
+        return total + value;    // Return 99
+    }
+</script>
+
+
+<!-- The reduce() method can accept an initial value: -->
+<script>
+    var numbers = [10, 20, 40, 80];
+    var sum = numbers.reduce(myFunction, 100);
+
+    document.getElementById("demo").innerHTML = sum;
+
+    function myFunction(total, value) {
+        return total + value;    // Return 199
+    }
+</script>
+
+
+
+
+<!-- 5)Array.every() -->
+<!-- every() method check if all array values pass a test -->
+<!-- Array().filter gibi kontrol yapar fakat sonucu "true" veya "false" olarak verir -->
+<!-- 
+    Note that the function takes 3 arguments:
+    1)The item value
+    2)The item index
+    3)The array itself
+-->
+
+<!-- This example check if all array values are larger than 18: -->
+<script>
+    var numbers = [15, 19, 20, 25, 30];
+    var checking = numbers.every(myFunction);
+
+    document.getElementById("demo").innerHTML = checking;
+
+    function myFunction(value, index, array) {
+        return value > 10;
+    }
+</script>
+
+
+
+
+<!-- 6)Array.some() -->
+<!-- some() method check if some array values pass a test -->
+<!-- 1 tanesi bile verilen durumu sağlarsa "true" olarak döndürür -->
+<!-- 
+    Note that the function takes 3 arguments:
+    1)The item value
+    2)The item index
+    3)The array itself
+-->
+
+<!-- This example check if some array values are larger than 18: -->
+<script>
+    var numbers = [15, 19, 20, 25, 30];
+    var checking = numbers.some(myFunction);
+
+    document.getElementById("demo").innerHTML = checking;
+
+    function myFunction(value, index, array) {
+        return value > 10;
+    }
+</script>
+
+
+
+
+<!-- 7)Array.indexOf() -->
+<!-- indexOf() method searches an array for an element value and returns its position -->
+<!-- The first item has position 0, the second item has position 1, and so on -->
+<script>
+    var fruits = ["Apple", "Orange", "Apple", "Mango"];
+    var a = fruits.indexOf("Apple");
+    document.getElementById("demo").innerHTML = "Apple is found in position " + a;
+    // Returns 0
+</script>
+
+
+
+
+<!-- 8)Array.lastIndexOf() -->
+<!-- Array.indexOf() tersine sıralamayı sondan başlatır -->
+
+<script>
+    var fruits = ["Apple", "Orange", "Apple", "Mango"];
+    var a = fruits.lastIndexOf("Apple");
+    document.getElementById("demo").innerHTML = "Apple is found in position " + a;
+    // Returns 3
+</script>
+
+
+
+
+<!-- 9)Array.find() -->
+<!-- find() method returns the value of the first array element that passes a test function -->
+<!-- Denklemi sağlayan ilk değeri döndürür -->
+<!-- 
+    Note that the function takes 3 arguments:
+    1)The item value
+    2)The item index
+    3)The array itself
+-->
+
+<!-- This example finds (returns the value of) the first element that is larger than 18: -->
+<script>
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.find(myFunction);
+
+    document.getElementById("demo").innerHTML = first;
+
+    function myFunction(value, index, array) {
+        return value > 18;    // Returns 25
+    }
+</script>
+
+
+
+
+<!-- 10)Array.findIndex() -->
+<!-- findIndex() method returns the index of the first array element that passes a test function -->
+<!-- Denklemi sağlayan ilk değerin indexini yazdırır -->
+<!-- 
+    Note that the function takes 3 arguments:
+    1)The item value
+    2)The item index
+    3)The array itself
+-->
+
+<!-- This example finds the index of the first element that is larger than 18: -->
+<script>
+    var numbers = [4, 9, 16, 25, 29];
+    var first_index = numbers.find(myFunction);
+
+    document.getElementById("demo").innerHTML = first_index;
+
+    function myFunction(value, index, array) {
+        return value > 18;    // Returns 3
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS DATES __________ -->
+<!-- JavaScript Date Object lets us work with dates: -->
+<!-- By default, JavaScript will use the browser's time zone and display a date as a full text string: -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+
+
+<!-- *Creating Date Objects* -->
+<!-- Date objects are created with the new Date() constructor -->
+<!-- 
+    There are 4 ways to create a new date object:
+    1)new Date()
+    2)new Date(year, month, day, hours, minutes, seconds, milliseconds)
+    3)new Date(milliseconds)
+    4)new Date(date string)
+-->
+
+
+
+
+<!-- 1)new Date() -->
+<!-- new Date() creates a new date object with the current date and time: -->
+<script>
+    var d = new Date();
+</script>
+
+
+
+
+<!-- 2)new Date(year, month, day, hours, minutes, seconds, milliseconds) -->
+<!-- new Date(year, month, ...) creates a new date object with a specified date and time -->
+<!-- 7 numbers specify year, month, day, hour, minute, second, and millisecond (in that order): -->
+<!-- JavaScript counts months from 0 to 11. January is 0. December is 11-->
+<!-- Parametrede kaç tane değer girersen o kadar bilgi olur -->
+<!-- Mesela parametreye 3 değer atarsan "year, month, day" gösterir -->
+<script>
+    var d = new Date(2020, 6, 2, 13, 30, 30, 0);
+</script>
+
+
+<!-- You cannot omit month. If you supply only one parameter it will be treated as milliseconds: -->
+<script>
+    var d = new Date(2020);
+    // 2020 milisaniye neye denk geliyorsa onu yazdırır
+</script>
+
+
+
+
+<!-- 3)new Date(milliseconds) -->
+<!-- Creates a new date object as zero time plus milliseconds: -->
+<!-- One day (24 hours) is 86 400 000 milliseconds -->>
+<!-- Girilen milisaniye değeri default tarih olan 1 Ocak 1970'e eklenir -->
+<script>
+    var d = new Date(100000000000);
+    // 03 March 1973 tarihine gider
+</script>
+
+
+<!-- (-) li hali de zamanda geriye doğru gider: -->
+<script>
+    var d = new Date(-100000000000);
+    // 31 October 1966 tarihine gider
+</script>
+
+
+
+
+<!-- 4)new Date(dateString) -->
+<!-- Creates a new date object from a date string: -->
+<script>
+    var d = new Date("October 13, 2014 11:13:00");
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS DATE FORMATS __________ -->
+
+<!-- *JavaScript Date Input* -->
+<!--
+    There are generally 3 types of JavaScript date input formats:
+    TYPE	          EXAMPLE
+    1)ISO Dates	      "2015-03-25" (The International Standard)
+    2)Short Dates	  "03/25/2015"
+    3)Long Dates	  "Mar 25 2015" or "25 Mar 2015"
+-->
+<!-- The ISO format follows a strict standard in JavaScript -->
+<!-- Other formats are not so well defined and might be browser specific -->
+
+
+
+
+<!-- 1)ISO Dates -->
+<!-- The ISO 8601 syntax (YYYY-MM-DD) is also the preferred JavaScript date format: -->
+<script>
+    var d = new Date("2015-03-25");
+</script>
+
+
+<!-- ISO dates can be written without specifying the day (YYYY-MM): -->
+<script>
+    var d = new Date("2015-03");
+</script>
+
+
+<!-- ISO dates can be written without month and day (YYYY): -->
+<script>
+    var d = new Date("2015");
+</script>
+
+
+<!-- ISO dates can be written with added hours, minutes, and seconds (YYYY-MM-DDTHH:MM:SSZ): -->
+<!-- Date and time is separated with a capital T -->
+<!-- UTC time is defined with a capital letter Z -->
+<script>
+    var d = new Date("2015-03-25T12:00:00Z")
+</script>
+
+
+
+
+<!-- 2)Short Dates -->
+<!-- Short dates are written with an "MM/DD/YYYY" syntax like this: -->
+<script>
+    var d = new Date("03/25/2015");
+</script>
+
+
+
+
+<!-- 3)Long Dates -->
+<!-- Long dates are most often written with a "MMM DD YYYY" syntax like this: -->
+<script>
+    var d = new Date("Mar 25 2015");
+</script>
+
+
+<!-- Month and day can be in any order: -->
+<script>
+    var d = new Date("25 Mar 2015");
+</script>
+
+
+<!-- And, month can be written in full (January), or abbreviated (Jan): -->
+<script>
+    var d1 = new Date("January 25 2015");
+    var d2 = new Date("Jan 25 2015");
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS DATE GET METHODS __________ -->
+<!--
+    These methods can be used for getting information from a date object:
+    getFullYear()	    Get the year as a four digit number (yyyy)
+    getMonth()	        Get the month as a number (0-11)
+    getDate()	        Get the day as a number (1-31)
+    getHours()	        Get the hour (0-23)
+    getMinutes()	    Get the minute (0-59)
+    getSeconds()	    Get the second (0-59)
+    getMilliseconds()	Get the millisecond (0-999)
+    getTime()	        Get the time (milliseconds since January 1, 1970)
+    getDay()	        Get the weekday as a number (0-6)
+    Date.now()	        Get the time. ECMAScript 5.
+-->
+
+
+<!-- *The getTime() Method* -->
+<!-- getTime() method returns the number of milliseconds since January 1, 1970: -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getTime();
+</script>
+
+
+
+
+<!-- *The getFullYear() Method* -->
+<!-- getFullYear() method returns the year of a date as a four digit number: -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getFullYear();   // 2020
+</script>
+
+
+
+
+<!-- *The getMonth() Method* -->
+<!-- getMonth() method returns the month of a date as a number (0-11): -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getMonth();
+</script>
+
+
+<!-- You can use an array of names, and getMonth() to return the month as a name: -->
+<script>
+    var d = new Date();
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    document.getElementById("demo").innerHTML = months[d.getMonth()];
+</script>
+
+
+
+
+<!-- *The getDate() Method* -->
+<!-- getDate() method returns the day of a date as a number (1-31): -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getDate();
+</script>
+
+
+
+
+<!-- *The getHours() Method* -->
+<!-- getHours() method returns the hours of a date as a number (0-23): -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getHours();
+</script>
+
+
+
+
+<!-- *The getMinutes() Method* -->
+<!-- getMinutes() method returns the minutes of a date as a number (0-59): -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getMinutes();
+</script>
+
+
+
+
+<!-- *The getSeconds() Method* -->
+<!-- getSeconds() method returns the seconds of a date as a number (0-59): -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getSeconds();
+</script>
+
+
+
+
+<!-- *The getMilliseconds() Method* -->
+<!-- getMilliseconds() method returns the milliseconds of a date as a number (0-999): -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getMilliseconds();
+</script>
+
+
+
+
+<!-- *The getDay() Method* -->
+<!-- getDay() method returns the weekday of a date as a number (0-6) -->
+<!-- In JavaScript, the first day of the week (0) means "Sunday", even if some countries in the world consider the first day of the week to be "Monday" -->
+<script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getDay();
+</script>
+
+
+<!-- You can use an array of names, and getDay() to return the weekday as a name: -->
+<script>
+    var d = new Date();
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    document.getElementById("demo").innerHTML = days[d.getDay()];
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS DATE SET METHODS __________ -->
+
+<!-- *Set Date Methods* -->
+<!-- 
+    Set Date methods are used for setting a part of a date:
+    setDate()	        Set the day as a number (1-31)
+    setFullYear()	    Set the year (optionally month and day)
+    setHours()	        Set the hour (0-23)
+    setMilliseconds()	Set the milliseconds (0-999)
+    setMinutes()	    Set the minutes (0-59)
+    setMonth()	        Set the month (0-11)
+    setSeconds()	    Set the seconds (0-59)
+    setTime()	        Set the time (milliseconds since January 1, 1970)
+-->
+
+
+
+
+<!-- *The setFullYear() Method* -->
+<!-- setFullYear() method sets the year of a date object. In this example to 2020: -->
+<script>
+    var d = new Date();
+    d.setFullYear(2020);
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+<!-- setFullYear() method can optionally set month and day: -->
+<script>
+    var d = new Date();
+    d.setFullYear(2020, 11, 3);     // 3 Aralık 2020
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+
+
+<!-- *The setMonth() Method* -->
+<!-- setMonth() method sets the month of a date object (0-11): -->
+<script>
+    var d = new Date();
+    d.setMonth(11);
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+
+
+<!-- *The setDate() Method* -->
+<!-- setDate() method sets the day of a date object (1-31): -->
+<script>
+    var d = new Date();
+    d.setDate(15);
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+<!-- setDate() method can also be used to add days to a date: -->
+<!-- Eğer eklenen günle beraber ay veya yıl değişirse Date object sayesinde otomatikman değişiklikler yapılır -->
+<script>
+    var d = new Date();
+    d.setDate(d.getDate() + 50);
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+
+
+<!-- *The setHours() Method* -->
+<!-- setHours() method sets the hours of a date object (0-23): -->
+<script>
+    var d = new Date();
+    d.setHours(22);
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+
+
+<!-- *The setMinutes() Method* -->
+<script>
+    var d = new Date();
+    d.setMinutes(30);
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+
+
+<!-- *The setSeconds() Method* -->
+<script>
+    var d = new Date();
+    d.setSeconds(30);
+    document.getElementById("demo").innerHTML = d;
+</script>
+
+
+
+
+<!-- *Compare Dates* -->
+<!-- The following example compares today's date with January 14, 2100: -->
+<script>
+    var today, someday, text;
+    today = new Date();
+    someday = new Date();
+    someday.setFullYear(2100, 0, 14);
+    
+    if (someday > today) {
+        text = "Today is before January 14, 2100.";
+    } 
+
+    else {
+        text = "Today is after January 14, 2100.";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS MATH OBJECT __________ -->
+<!-- The JavaScript Math object allows you to perform mathematical tasks on numbers. -->
+<script>
+    document.getElementById("demo").innerHTML = Math.PI;     
+    // returns 3.141592653589793
+    // alttaki tüm örneklerde bu şekilde yazdırıyoruz. Hepsine tek tek document.getElementById şeklinde yazmıcam
+</script>
+
+
+
+
+<!-- Math.round() -->
+<!-- Yuvarlama işlemidir -->
+<script>
+    Math.round(4.7);     // returns 5
+    math.round(4.3);     // returns 4
+</script>
+
+
+
+
+<!-- Math.ceil() -->
+<!-- Yukarıya yuvarlama işlemidir -->
+<script>
+    Math.ceil(4.4);     // returns 5
+</script>
+
+
+
+
+<!-- Math.floor() -->
+<!-- Aşağıya yuvarlama işlemidir -->
+<script>
+    Math.floor(5.8);    // returns 5
+</script>
+
+
+
+
+<!-- Math.pow() -->
+<!-- Üs alma işlemidir -->
+<!-- İlk yazılan değer taban, ikinci yazılan değer üstür -->
+<script>
+    Math.pow(8, 2);    // returns 64
+</script>
+
+
+
+
+<!-- Math.sqrt() -->
+<!-- Karekök işlemidir -->
+<script>
+    Math.sqrt(64);    // returns 8
+</script>
+
+
+
+
+<!-- Math.abs() -->
+<!-- Mutlak değer işlemidir -->
+<script>
+    Math.abs(-4.7);    // returns 4.7
+</script>
+
+
+
+
+<!-- Math.sin() -->
+<!-- Math.sin(x) returns the sine (a value between -1 and 1) of the angle x (given in radians) -->
+<!--
+    If you want to use degrees instead of radians, you have to convert degrees to radians:
+    Angle in radians = Angle in degrees x PI / 180
+-->
+<script>
+    Math.sin(90 * Math.PI / 100);    // returns 1   (sin 90 = 1)
+</script>
+
+
+
+
+<!-- Math.cos() -->
+<script>
+    Math.cos(0 * Math.PI / 180);     // returns 1   (cos 0 = 1)
+</script>
+
+
+
+
+<!-- Math.min() and Math.max() -->
+<!-- Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments: -->
+<script>
+    Math.min(10, 20, -40, 50, 60);     // returns -40
+    Math.max(10, 20, -40, 50, 60);     // returns 60
+</script>
+
+
+
+
+<!-- Math.random() -->
+<!-- Parametrenin içi boşken 0 ile 1 arasında random bir sayı atar -->
+<script>
+    Math.random();
+</script>
+
+
+
+
+<!-- *Math Properties (Constants)* -->
+<!-- 
+    JavaScript provides 8 mathematical constants that can be accessed with the Math object:
+    Math.E          returns Euler's number
+    Math.PI         returns PI
+    Math.SQRT2      returns the square root of 2
+    Math.SQRT1_2    returns the square root of 1/2
+    Math.LN2        returns the natural logarithm of 2
+    Math.LN10       returns the natural logarithm of 10
+    Math.LOG2E      returns base 2 logarithm of E
+    Math.LOG10E     returns base 10 logarithm of E
+-->
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS RANDOM __________ -->
+
+<!-- Math.random() -->
+<!-- Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive): -->
+<script>
+    Math.random();
+</script>
+
+
+
+
+<!-- *JavaScript Random Integers* -->
+<!-- Math.random() used with Math.floor() can be used to return random integers -->
+<script>
+    Math.floor(Math.random() * 10);          // 0 dan 9'a kadar random sayı
+    Math.floor(Math.random() * 50);          // 0 dan 49'a kadar random sayı
+    Math.floor(Math.random() * 100) + 1;     // 1'den 100'e kadar random sayı (100 dahil)
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS BOOLEANS __________ -->
+<!-- A JavaScript Boolean represents one of two values: true or false -->
+
+
+<!-- *The Boolean() Function* -->
+<!-- You can use the Boolean() function to find out if an expression (or a variable) is true: -->
+<script>
+    Boolean(10 > 9);     // returns true
+</script>
+
+
+<!-- Or even easier: -->
+<script>
+    (10 > 9);     // returns true
+    10 > 9;       // returns true
+</script>
+
+
+
+
+<!-- NOTE: Everything With a "Value" is True -->
+<script>
+    var b1 = Boolean(100);
+    var b2 = Boolean(3.14);
+    var b3 = Boolean(-15);
+    var b4 = Boolean("Hello");
+    var b5 = Boolean('false');
+    var b6 = Boolean(1 + 7 + 3.14);
+</script>
+
+
+<!-- NOTE: Everything Without a "Value" is False -->
+<script>
+    var x = 0;
+    Boolean(x);     
+
+    var y = "";
+    Boolean(y);
+
+    var z;
+    Boolean(z);
+
+    var a = null;
+    Boolean(a);
+
+    var b = false;
+    Boolean(b);
+
+    var c = 10 / "H";
+    Boolean(c);
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- JS COMPARISON , JS CONDITIONS (IF-ELSE) KONULARINI BİLDİĞİM İÇİN YAZMADIM. W3SCHOOLS'DA VAR GEREKİRSE -->
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS SWITCH CASE __________ -->
+
+<!-- Example: -->
+<script>
+    var day, text;
+
+    switch (new Date().getDay()) {
+        case 0:
+            day = "Sunday";
+            break;
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case  6:
+            day = "Saturday";      
+            break;
+        default:
+            text = "Wrong number!!!";   
+    }
+
+    document.getElementById("demo").innerHTML = "Today is " + day;
+</script>
+
+
+
+
+<!-- *Common Code Blocks* -->
+<!-- Sometimes you will want different switch cases to use the same code -->
+<!-- In this example case 1, 2, 3, 4 and 5 share the same code block, and 0 and 6 share another code block: -->
+<script>
+    switch (new Date().getDay()) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            text = "Weekdays";
+            break;
+        case 0:
+        case 6:
+            text = "Weekend";
+            break;
+        default:
+            text = "Wrong number!!!";
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS FOR LOOP __________ -->
+
+<!-- Example: -->
+<script>
+    var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+    var text = "";
+    var i;
+
+    for (i = 0; i < cars.length; i++) {
+        text += cars[i] + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    /*
+        Result:
+        BMW
+        Volvo
+        Saab
+        Ford
+        Fiat
+        Audi
+    */
+</script>
+
+
+<!-- Example: -->
+<script>
+    var text = "";
+    var i;
+
+    for (i = 0; i < 5; i++) {
+        text += "The number is " + i + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    /*
+        Result:
+        The number is 0
+        The number is 1
+        The number is 2
+        The number is 3
+        The number is 4
+    */
+</script>
+
+
+
+
+<!-- For/In Loop -->
+<!-- JavaScript for/in statement loops through the properties of an object: -->
+<script>
+    var txt = "";
+    var person = {fname:"John", lname:"Doe", age:25}; 
+    var x;
+
+    for (x in person) {
+        txt += person[x] + " ";
+    }
+
+    document.getElementById("demo").innerHTML = txt;
+
+    // Result: John Doe 25
+</script>
+
+
+
+
+<!-- For/Of Loop -->
+<!-- JavaScript for/of statement loops through the values of an iterable objects -->
+<script>
+    var cars = ['BMW', 'Volvo', 'Mini'];
+    var x;
+    
+    for (x of cars) {
+        document.write(x + "<br>");
+    }
+
+    /*  
+        Result:
+        BMW
+        Volvo
+        Mini
+    */
+</script>
+
+
+<!-- Looping over a String: -->
+<script>
+    var txt = 'JavaScript';
+    var x;
+    
+    for (x of txt) {
+        document.write(x + "<br>");
+    }
+
+    /*  
+        Result:
+        J
+        a
+        v
+        a
+        S
+        c
+        r
+        i
+        p
+        t
+    */
+</script>
+
+
+
+
+
+
+
+
+
+
+<!--  __________ JS WHILE LOOP __________ -->
+
+<!-- While Loop -->
+<!-- While loop loops through a block of code as long as a specified condition is true -->
+
+<!-- Example: -->
+<script>
+    var text = "";
+    var i = 0;
+
+    while (i < 10) {
+        text += "The number is " + i + "<br>";
+        i++;
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    /*
+        Result:
+        The number is 0
+        The number is 1
+        The number is 2
+        The number is 3
+        The number is 4
+        The number is 5
+        The number is 6
+        The number is 7
+        The number is 8
+        The number is 9
+    */
+</script>
+
+
+
+
+<!-- Do/While Loop -->
+<!-- Do/While loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true -->
+
+<!-- Example: -->
+<script>
+    var text = ""
+    var i = 0;
+    
+    do {
+        text += "The number is " + i + "<br>";
+        i++;
+    } while (i < 10);  
+    
+    document.getElementById("demo").innerHTML = text;
+
+    /*
+        Result:
+        The number is 0
+        The number is 1
+        The number is 2
+        The number is 3
+        The number is 4
+        The number is 5
+        The number is 6
+        The number is 7
+        The number is 8
+        The number is 9
+    */
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS BREAK AND CONTINUE __________ -->
+<!-- "break" statement "jumps out" of a loop -->
+<!-- "continue" statement "jumps over" one iteration in the loop -->
+
+
+<!-- *Break Statement* -->
+<!-- "break" statement breaks the loop and continues executing the code after the loop (if any) -->
+
+<!-- Example: -->
+<script>
+    var text = "";
+    var i;
+
+    for (i = 0; i < 10; i++) {
+        if (i === 3) { break; }    // 3'e geldiğinde döngüyü bitirir
+        text += "The number is " + i + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    /*
+        Result:
+        The number is 0
+        The number is 1
+        The number is 2
+    */
+</script>
+
+
+<!-- Example: -->
+<script>
+    var cars = ["BMW", "Volvo", "Saab", "Ford"];
+    var text = "";
+    
+    list: {
+        text += cars[0] + "<br>"; 
+        text += cars[1] + "<br>"; 
+        break list;
+        text += cars[2] + "<br>"; 
+        text += cars[3] + "<br>"; 
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    /*
+        Result:
+        BMW
+        Volvo
+    */
+</script>
+
+
+
+
+<!-- *Continue Statement* -->
+<!-- "continue" statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop -->
+<script>
+    var text="";
+    var i;
+
+    for (i = 0; i < 8; i++) {
+        if (i == 3) { continue; }    // 3'ü atlayıp 4'ten devam eder
+        text += "Number is " + i + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    /*
+        Result:
+        Number is 0
+        Number is 1
+        Number is 2
+        Number is 4
+        Number is 5
+        Number is 6
+        Number is 7
+    */
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS TYPE CONVERSION __________ -->
+<!-- Number() converts to a Number, String() converts to a String, Boolean() converts to a Boolean -->
+
+
+<!-- *JavaScript Data Types* -->
+<!--
+    There are 5 different data types that can contain values:
+    string
+    number
+    boolean
+    object
+    function
+-->
+
+<!--
+    There are 6 types of objects:
+    Object
+    Date
+    Array
+    String
+    Number
+    Boolean
+-->
+
+<!--
+    And 2 data types that cannot contain values:
+    null
+    undefined
+-->
+
+
+
+
+<!-- *The typeof Operator* -->
+<!-- You can use the typeof operator to find the data type of a JavaScript variable -->
+<script>
+    document.getElementById("demo").innerHTML =
+        typeof "John"                    // Returns "string"
+        typeof 3.14                      // Returns "number"
+        typeof NaN                       // Returns "number"
+        typeof false                     // Returns "boolean"
+        typeof [1,2,3,4]                 // Returns "object"
+        typeof {name:'John', age:34}     // Returns "object"
+        typeof new Date()                // Returns "object"
+        typeof function () {}            // Returns "function"
+        typeof myCar                     // Returns "undefined" *
+        typeof null                      // Returns "object"
+</script>
+
+
+
+
+<!-- *Converting Numbers to Strings* -->
+<!-- The global method String() can convert numbers to strings -->
+<!-- It can be used on any type of numbers, literals, variables, or expressions: -->
+<script>
+    var x = 123;
+    document.getElementById("demo").innerHTML =
+        String(x) + "<br>" +       // returns a string from a number variable
+        String(123) + "<br>" +     // returns a string from a number literal 123
+        String(100 + 23);          // returns a string from a number from an expression
+</script>
+
+
+<!-- The Number method toString() does the same: -->
+<script>
+    var x = 123;
+    document.getElementById("demo").innerHTML =
+        x.toString() + "<br>" +
+        (123).toString() + "<br>" +
+        (100 + 23).toString();
+</script>
+
+
+
+
+<!-- *Converting Booleans to Strings* -->
+<!-- The global method String() can convert booleans to strings: -->
+<script>
+    String(false)       // returns "false"
+    String(true)        // returns "true"
+</script>
+
+
+<!-- The Boolean method toString() does the same: -->
+<script>
+    false.toString()    // returns "false"
+    true.toString()     // returns "true"
+</script>
+
+
+
+
+<!-- *Converting Dates to Strings* -->
+<!-- The global method String() can convert dates to strings: -->
+<script>
+    String(Date())  
+    // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+</script>
+
+
+<!-- The Date method toString() does the same: -->
+<script>
+    Date().toString()  
+    // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+</script>
+
+
+
+
+<!-- *Converting Strings to Numbers* -->
+<!-- The global method Number() can convert strings to numbers -->
+<!-- Strings containing numbers (like "3.14") convert to numbers (like 3.14) -->
+<!-- Empty strings convert to 0 -->
+<!-- Anything else converts to NaN (Not a Number) -->
+<script>
+    Number("3.14")     // returns 3.14
+    Number(" ")        // returns 0
+    Number("")         // returns 0
+    Number("99 88")    // returns NaN
+</script>
+
+
+
+
+<!-- *The Unary + Operator* -->
+<!-- The unary + operator can be used to convert a variable to a number: -->
+<script>
+    function myFunction() {
+        var y = "5";
+        var x = + y;
+        document.getElementById("demo").innerHTML = 
+        typeof y + "<br>" + typeof x;
+
+        /*
+            Result:
+            string
+            number
+        */
+    }
+</script>
+
+
+
+
+<!-- *Converting Booleans to Numbers* -->
+<!-- The global method Number() can also convert booleans to numbers -->
+<script>
+    Number(false);      // returns 0
+    Number(true);       // returns 1
+</script>
+
+
+
+
+<!-- *Converting Dates to Numbers* -->
+<!-- The global method Number() can be used to convert dates to numbers -->
+<script>
+    d = new Date();
+    Number(d);          // returns 1404568027739
+</script>
+
+
+<!-- The date method getTime() does the same. -->
+<script>
+    d = new Date();
+    d.getTime()        // returns 1404568027739
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS BITWISE __________ -->
+
+<!-- JavaScript Bitwise Operators -->
+<!--
+    OPERATOR      NAME                      DESCRIPTION
+    &	          AND	                    Sets each bit to 1 if both bits are 1
+    |	          OR	                    Sets each bit to 1 if one of two bits is 1
+    ^	          XOR	                    Sets each bit to 1 if only one of two bits is 1
+    ~	          NOT	                    Inverts all the bits
+    <<	          Zero fill left shift	    Shifts left by pushing zeros in from the right and let the leftmost bits fall off
+    >>	          Signed right shift	    Shifts right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off
+    >>>	          Zero fill right shift	    Shifts right by pushing zeros in from the left, and let the rightmost bits fall off
+-->
+
+<!-- 
+    Operation	Result	    Same as	            Result
+    5 & 1	    1	        0101 & 0001	        0001
+    5 | 1	    5	        0101 | 0001	        0101
+    ~ 5	        10	        ~0101	            1010
+    5 << 1	    10	        0101 << 1	        1010
+    5 ^ 1	    4	        0101 ^ 0001	        0100
+    5 >> 1	    2	        0101 >> 1	        0010
+    5 >>> 1	    2   	    0101 >>> 1	        0010
+-->
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS REGULAR EXPRESSIONS __________ -->
+<!-- A regular expression is a sequence of characters that forms a search pattern -->
+<!-- The search pattern can be used for text search and text replace operations -->
+<!-- When you search for data in a text, you can use this search pattern to describe what you are searching for -->
+<!-- A regular expression can be a single character, or a more complicated pattern -->
+
+
+<!-- *Syntax* -->
+<!-- 
+    var patt = /w3schools/i;
+    /w3schools/i  is a regular expression
+    w3schools  is a pattern (to be used in a search)
+    i  is a modifier (modifies the search to be case-insensitive)
+-->
+
+
+
+
+<!-- *Using String Methods* -->
+<!-- In JavaScript, regular expressions are often used with the two string methods: search() and replace() -->
+<!-- search() method uses an expression to search for a match, and returns the position of the match -->
+<!-- replace() method returns a modified string where the pattern is replaced -->
+
+
+
+
+<!-- Using String search() With a "String" -->
+<script>
+    var str = "Visit W3Schools!"; 
+    var n = str.search("W3Schools");
+    document.getElementById("demo").innerHTML = n;    // Returns 6
+    
+    /*
+        V = 0
+        i = 1
+        s = 2
+        i = 3
+        t = 4
+          = 5
+        W = 6
+    */
+</script>
+
+
+<!-- Using String search() With a "Regular Expression" -->
+<!-- Regular Expression modifier'ı olarak "i" yi kullandık örneklerde. Aşağı kısımda diğer modifier'ları da incelicez -->
+<script>
+    var str = "Visit W3Schools!"; 
+    var n = str.search(/w3Schools/i);
+    document.getElementById("demo").innerHTML = n;    // Returns 6
+</script>
+
+
+
+
+<!-- Using String replace() With a "String" -->
+<script>
+    var str = "Visit Microsoft!";
+    var res = str.replace("Microsoft", "W3Schools");
+    
+    // Result: Visit W3Schools
+</script>
+
+
+<!-- Using String replace() With a "Regular Expression" -->
+<script>
+    var str = "Visit Microsoft!";
+    var res = str.replace(/microsoft/i, "W3Schools");
+    
+    // Result: Visit W3Schools
+</script>
+
+
+
+
+<!-- *Regular Expression Modifiers* -->
+<!-- Modifiers can be used to perform case-insensitive more global searches -->
+<!--
+    i	Perform case-insensitive matching  (Büyük-Küçük harf duyarsız)
+    g	Perform a global match (find all matches rather than stopping after the first match)	
+    m	Perform multiline matching
+-->
+
+
+<!-- 1)Modifier i -->
+<!-- Büyük-Küçük harf duyarsız olduğu için kelimenin düzgün yazılmış olması yeterlidir -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Click the button to do a case-insensitive search for "w3schools" in a string.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo38"></p>
+    <script>
+        function myFunction() {
+            var str = "Visit W3Schools";
+            var result = str.match(/w3schools/i);
+            document.getElementById("demo38").innerHTML = result;
+        }
+
+        // Result: W3Schools
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 2)Modifier g -->
+<!-- Aranan kelime kaç kere geçiyorsa gösterir -->
+<!-- Büyük-Küçük harf duyarlıdır -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Click the button to do a global search for "is" in a string.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo39"></p>
+    <script>
+        function myFunction() {
+            var str = "Ismail ıs is is ismael";
+            var result = str.match(/is/g);
+            document.getElementById("demo39").innerHTML = result;
+        }
+
+    // Result: is,is,is (Ismail'deki Is'i almaz)
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 3)Modifier m -->
+<!-- Perform multiline matching -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Click the button to do a multiline search for "is" at the beginning of each line in a string.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo40"></p>
+    <script>
+        function myFunction() {
+            var str = "\nIs th\nis it?";
+            var result = str.match(/^is/m);
+            document.getElementById("demo40").innerHTML = result;
+        }
+
+        // Result: is
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- Using test() -->
+<!-- test() method is a RegExp expression method -->
+<!-- It searches a string for a pattern, and returns true or false, depending on the result -->
+
+<!-- The following example searches a string for the character "e": -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="p01">The best things in life are free!</p>
+    <p id="demo41"></p>
+    <script>
+        text = document.getElementById("p01").innerHTML; 
+        document.getElementById("demo41").innerHTML = /e/.test(text);
+
+        // Returns true
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- Using exec() -->
+<!-- exec() method is a RegExp expression method -->
+<!-- It searches a string for a specified pattern, and returns the found text as an object -->
+<script>
+    var obj = /e/.exec("The best things in life are free!");
+    document.getElementById("demo").innerHTML =
+    "Found " + obj[0] + " in position " + obj.index + " in the text: " + obj.input;
+
+    // Result: Found e in position 2 in the text: The best things in life are free! 
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS ERRORS - THROW and TRY to CATCH __________ -->
+<!-- 
+    "try" statement lets you test a block of code for errors.
+    "catch" statement lets you handle the error.
+    "throw" statement lets you create custom errors.
+    "finally" statement lets you execute code, after try and catch, regardless of the result
+-->
+
+
+<!-- Try and Catch Statements -->
+<script>
+    try {
+        adddlert("Welcome guest!");
+    }
+
+    catch(err) {
+        document.getElementById("demo").innerHTML = err.message;
+    }
+</script>
+
+
+
+
+<!-- Throw Statement -->
+<!-- The throw statement allows you to create a custom error -->
+<!-- Technically you can throw an exception (throw an error) -->
+<!-- The exception can be a JavaScript String, a Number, a Boolean or an Object: -->
+<!-- If you use throw together with try and catch, you can control program flow and generate custom error messages -->
+<script>
+    throw "Too big";     // throw a text
+    throw 500;           // throw a number
+</script>
+
+
+
+
+<!-- Input Validation Example -->
+<!-- This example examines input. If the value is wrong, an exception (err) is thrown -->
+<!-- The exception (err) is caught by the catch statement and a custom error message is displayed -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Please input a number between 5 and 10:</p>
+    <input id="demo42" type="text">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="p02"></p>
+    <script>
+        function myFunction() {
+            var message, x;
+            message = document.getElementById("p02");
+            message.innerHTML = "";
+            x = document.getElementById("demo42").value;
+
+            try { 
+                if (x == "")  throw "empty";
+                if (isNaN(x)) throw "not a number";
+                if (x < 5)  throw "too low";
+                if (x > 10)   throw "too high";
+            }
+
+            catch(err) {
+                message.innerHTML = "Input is " + err;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- Finally Statement -->
+<!-- The finally statement lets you execute code, after try and catch, regardless of the result: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Please input a number between 5 and 10:</p>
+    <input id="demo43" type="text">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="p03"></p>
+    <script>
+        function myFunction() {
+            var message, x;
+            message = document.getElementById("p03");
+            message.innerHTML = "";
+            x = document.getElementById("demo43").value;
+
+            try { 
+                if(x == "")  throw "is empty";
+                if(isNaN(x)) throw "is not a number";
+                if(x > 10)   throw "is too high";
+                if(x < 5)  throw "is too low";
+            }
+
+            catch(err) {
+                message.innerHTML = "Input " + err;
+            }
+
+            finally {
+                document.getElementById("demo43").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *Error Name Values* -->
+<!-- 
+    Six different values can be returned by the error name property:
+    1)EvalError	       An error has occurred in the eval() function
+    2)RangeError	   A number "out of range" has occurred
+    3)ReferenceError   An illegal reference has occurred
+    4)SyntaxError	   A syntax error has occurred
+    5)TypeError	       A type error has occurred
+    6)URIError	       An error in encodeURI() has occurred
+-->
+
+
+
+
+<!-- 1)Eval Error -->
+<!-- An EvalError indicates an error in the eval() function -->
+<!-- Never versions of JavaScript do not throw EvalError. Use "SyntaxError" instead -->
+
+
+
+
+<!-- 2)Range Error -->
+<!-- A RangeError is thrown if you use a number that is outside the range of legal values -->
+
+<!-- For example, you cannot set the number of significant digits of a number to 500: -->
+<script>
+    var num = 1;
+
+    try {
+        num.toPrecision(500);    // A number cannot have 500 significant digits
+    }
+
+    catch(err) {
+        document.getElementById("demo").innerHTML = err.name;
+    }
+</script>
+
+
+
+
+<!-- 3)Reference Error -->
+<!-- A ReferenceError is thrown if you use (reference) a variable that has not been declared: -->
+<script>
+    var x;
+
+    try {
+        x = y + 1;     // y'yi tanımladığımız için kullanamayız
+    }
+    
+    catch(err) {
+        document.getElementById("demo").innerHTML = err.name;
+    }  
+</script>
+
+
+
+
+<!-- 4)Syntax Error -->
+<!-- SyntaxError is thrown if you try to evaluate code with a syntax error: -->
+<script>
+    try {
+        eval("alert('Hello)");     // Missing ' will produce an error
+    }
+
+    catch(err) {
+        document.getElementById("demo").innerHTML = err.name;
+    }
+</script>
+
+
+
+
+
+<!-- 5)Type Error -->
+<!-- A TypeError is thrown if you use a value that is outside the range of expected types: -->
+<script>
+    var num = 1;
+
+    try {
+        num.toUpperCase();    // You cannot convert a number to upper case
+    }
+
+    catch(err) {
+        document.getElementById("demo").innerHTML = err.name;
+    }
+</script>
+
+
+
+
+<!-- 6)URI (Uniform Resource Identifier) Error -->
+<!-- URIError is thrown if you use illegal characters in a URI function: -->
+<script>
+    try {
+        decodeURI("%%%");    // You cannot URI decode percent signs
+    }
+
+    catch(err) {
+        document.getElementById("demo").innerHTML = err.name;
+    }
+</script>
+
+
+
+
+<!-- 7)Non-Standard Error Object Properties -->
+<!--
+    Mozilla and Microsoft defines some non-standard error object properties:
+
+    fileName (Mozilla)
+    lineNumber (Mozilla)
+    columnNumber (Mozilla)
+    stack (Mozilla)
+    description (Microsoft)
+    number (Microsoft)
+
+    Do not use these properties in public web sites. They will not work in all browsers
+-->
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS SCOPE __________ -->
+<!-- Scope determines the accessibility (visibility) of variables -->
+<!--
+    In JavaScript there are two types of scope:
+    1)Local scope
+    2)Global scope
+-->
+
+
+
+
+<!-- 1)Local JavaScript Variables -->
+<!-- Variables declared within a JavaScript function, become LOCAL to the function -->
+<!-- Local variables have Function scope: They can only be accessed from within the function -->
+<script>
+    // code here can NOT use carName
+
+    function myFunction() {
+        var carName = "Volvo";    // fonksiyon içinde tanımlandı
+
+    // code here CAN use carName
+    }
+</script>
+
+
+<!-- Example: -->
+</script>
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="demo44"></p>
+    <p id="demo45"></p>
+    <script>
+        myFunction();      
+        
+        function myFunction() {
+            var myVehicle = "Volvo";
+            document.getElementById("demo44").innerHTML = typeof myVehicle + " " + myVehicle;
+        }
+    
+        document.getElementById("demo45").innerHTML = typeof myVehicle;
+
+        /* 
+            Result:
+            string Volvo
+            undefined
+        */
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 2)Global JavaScript Variables -->
+<!-- A variable declared outside a function, becomes GLOBAL -->
+<!-- A global variable has global scope: All scripts and functions on a web page can access it -->
+<script>
+    var carName = "Volvo";    // fonksiyonun dışında tanımlandı
+
+    // code here can use carName
+
+    function myFunction() {
+
+    // code here can also use carName
+
+    }
+</script>
+
+
+<!-- Example: -->
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="demo46"></p>
+    <script>
+        var car = "Volvo";
+        myFunction();
+
+        function myFunction() {
+            document.getElementById("demo46").innerHTML = "I can display " + car;    // Output: I can display Volvo
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- *JavaScript Variables* -->
+<!-- In JavaScript, objects and functions are also variables -->
+<!-- Scope determines the accessibility of variables, objects, and functions from different parts of the code -->
+
+
+
+
+<!-- *Automatically Global* -->
+<!-- If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable -->
+<script>
+    myFunction();
+
+    // code here can use carName
+
+    function myFunction() {
+        carName = "Volvo";    // var koymadık başına ve otomatikman global variable oldu. Strict modda bu durumda hata verir (altta görcez)
+    }
+</script>
+
+
+<!-- Example: -->
+<script>
+    myFunction();
+    document.getElementById("demo").innerHTML = "I can display " + carName;
+
+    function myFunction() {
+        carName = "Volvo";
+    }
+
+    // Result: I can display Volvo
+</script>
+
+
+
+
+<!-- *Global Variables in HTML* -->
+<!-- With JavaScript, the global scope is the complete JavaScript environment -->
+<!-- In HTML, the global scope is the window object. All global variables belong to the window object -->
+<script>
+    var carName = "Volvo";
+
+    // code here can use window.carName
+
+    document.getElementById("demo").innerHTML = "I can display " + window.carName;
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS STRICT MODE __________ -->
+<!-- "use strict"; Defines that JavaScript code should be executed in "strict mode" -->
+<!-- The "use strict" directive is only recognized at the "beginning" of a script or a function -->
+
+
+<!-- *The "use strict" Directive* -->
+<!-- The "use strict" directive was new in ECMAScript version 5 -->
+<!-- It is not a statement, but a literal expression, ignored by earlier versions of JavaScript -->
+<!-- The purpose of "use strict" is to indicate that the code should be executed in "strict mode" -->
+<!-- With strict mode, you can not, for example, use undeclared variables -->
+<!-- All modern browsers support "use strict" except Internet Explorer 9 and lower -->
+<!-- You can use strict mode in all your programs. It helps you to write cleaner code, like preventing you from using undeclared variables -->
+
+
+
+
+<!-- *Declaring Strict Mode* -->
+<!-- Strict mode is declared by adding "use strict"; to the beginning of a script or a function -->
+<!-- Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode): -->
+<script>
+    "use strict";
+    x = 3.14;       // This will cause an error (x is not defined)
+</script>
+
+
+<script>
+    "use strict";
+    myFunction();
+
+    function myFunction() {
+        y = 3.14;   // This will also cause an error because y is not declared  
+    }
+</script>
+
+
+<!-- Declared inside a function, it has local scope (only the code inside the function is in strict mode): -->
+<script>
+    x = 3.14;        // This will NOT cause an error.
+    myFunction();
+
+    function myFunction() {
+        "use strict";
+        y = 3.14;    // This will cause an error
+    }
+</script>
+
+
+
+
+<!-- Why Strict Mode? -->
+<!-- Strict mode makes it easier to write "secure" JavaScript -->
+<!-- Strict mode changes previously accepted "bad syntax" into real errors -->
+<!-- As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable -->
+
+
+
+
+<!-- *Not Allowed in Strict Mode* -->
+<!-- Using a variable, without declaring it, is not allowed: -->
+<script>
+    "use strict";
+    x = 3.14;          // This will cause an error
+</script>
+
+
+<!-- Using an object, without declaring it, is not allowed: -->
+<script>
+    "use strict";
+    x = {p1: 10, p2: 20};     // This will cause an error
+</script>
+
+
+<!-- Deleting a variable (or object) is not allowed: -->
+<script>
+    "use strict";
+    var x = 3.14;
+    delete x;        // This will cause an error
+</script>
+
+
+<!-- Deleting a function is not allowed: -->
+<script>
+    "use strict";
+    function x(p1, p2) {};
+    delete x;        // This will cause an error 
+</script>
+
+
+<!-- Duplicating a parameter name is not allowed: -->
+<script>
+    "use strict";
+    function x(p1, p1) {};     // This will cause an error
+</script>
+
+
+<!-- Octal numeric literals are not allowed: -->
+<script>
+    "use strict";
+    var x = 010;         // This will cause an error    
+</script>
+
+
+<!-- Octal escape characters are not allowed: -->
+<script>
+    "use strict";
+    var x = "\010";      // This will cause an error  
+</script>
+
+
+<!-- Writing to a read-only property is not allowed: -->
+<script>
+    "use strict";
+    var obj = {};
+    Object.defineProperty(obj, "x", {value: 0, writable: false});
+
+    obj.x = 3.14;        // This will cause an error
+</script>
+
+
+<!-- Writing to a get-only property is not allowed: -->
+<script>
+    "use strict";
+    var obj = {get x() {return 0} };
+
+    obj.x = 3.14;       // This will cause an error
+</script>
+
+
+<!-- Deleting an undeletable property is not allowed: -->
+<script>
+    "use strict";
+    delete Object.prototype;      // This will cause an error
+</script>
+
+
+<!-- The word eval cannot be used as a variable: -->
+<script>
+    "use strict";
+    var eval = 3.14;       // This will cause an error
+</script>
+
+
+<!-- The word arguments cannot be used as a variable: -->
+<script>
+    "use strict";
+    var arguments = 3.14;      // This will cause an error
+</script>
+
+
+<!-- The with statement is not allowed: -->
+<script>
+    "use strict";
+    with (Math){x = cos(2)};      // This will cause an error
+</script>
+
+
+<!-- For security reasons, eval() is not allowed to create variables in the scope from which it was called: -->
+<script>
+    "use strict";
+    eval ("var x = 2");
+    alert (x);            // This will cause an error
+</script>
+
+
+
+
+
+<!-- *Future Proof!* -->
+<!-- Keywords reserved for future JavaScript versions can NOT be used as variable names in strict mode -->
+<!-- 
+    These are:
+    implements
+    interface
+    let
+    package
+    private
+    protected
+    public
+    static
+    yield
+-->
+
+
+<script>
+    "use strict";
+    var public = 1500;      // This will cause an error
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS "THIS" KEYWORD __________  -->
+
+<!-- The JavaScript "this" keyword refers to the object it belongs to -->
+<!-- 
+    It has different values depending on where it is used:
+    1)In a method
+    2)Alone
+    3)In a function (default)
+    4)In a function (strict)
+    5)In an event
+    6)Methods like call() and apply()
+-->
+
+
+
+
+<!-- 1)this in a Method -->
+<!-- In an object method, this refers to the "owner" of the method -->
+
+<!-- In the example below, this refers to the "person" object -->
+<!-- The person object is the owner of the fullName method -->
+<script>
+    var person = {              // creating an object
+        firstName: "John",
+        lastName: "Doe",
+        id: 5566,
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+
+    document.getElementById("demo").innerHTML = person.fullName();
+
+    // Result: John Doe
+</script>
+
+
+
+
+<!-- 2)this Alone -->
+<!-- When used alone, the owner is the Global object, so this refers to the Global object -->
+<!-- In a browser window the Global object is [object Window] -->
+<script>
+    var x = this;
+    document.getElementById("demo").innerHTML = x;
+
+    // Result: [object Window]
+</script>
+
+
+
+
+<!-- 3)this in a Function (Default) -->
+<!-- In a function, this refers to the Global object [object Window] -->
+<script>
+    document.getElementById("demo").innerHTML = myFunction();
+    function myFunction() {
+        return this;
+    }
+
+    // Result: [object Window]
+</script>
+
+
+
+
+<!-- 4)this in a Function (Strict) -->
+<!-- JavaScript strict mode does not allow default binding -->
+<!-- So, when used in a function, in strict mode, this is undefined -->
+<script>
+    "use strict";
+    document.getElementById("demo").innerHTML = myFunction();
+    function myFunction() {
+        return this;
+    }
+
+    // Result: undefined
+</script>
+
+
+
+
+<!-- 5)this in Event Handlers -->
+<!-- In HTML event handlers, this refers to the HTML element that received the event -->
+<body>
+    <button onclick="this.style.display='none'">Click to remove</button>
+</body>
+
+
+
+
+<!-- call() ve apply() fonksiyonları ilerde görülecek -->
+
+
+
+
+
+
+
+
+
+
+<!-- __________ JS LET __________ -->
+<!-- ES2015 introduced two important new JavaScript keywords: "let" and "const" -->
+<!-- These two keywords provide "Block Scope" variables (and constants) in JavaScript -->
+<!-- Before ES2015, JavaScript had only two types of scope: "Global Scope" and "Function Scope" -->
+
+
+<!-- *Global Scope* -->
+<script>
+    var carName = "Volvo";
+    myFunction();
+    
+    // code here can use carName
+
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "I can display " + carName;
+
+    // code here can also use carName
+    }
+</script>
+
+
+
+
+<!-- *Function Scope* -->
+<script>
+    myFunction();
+
+    // code here can NOT use carName
+    
+    function myFunction() {
+        var carName = "Volvo";
+        document.getElementById("demo1").innerHTML = typeof carName + " " + carName;
+
+    // code here can use carName
+    }
+
+    document.getElementById("demo2").innerHTML = typeof carName;
+
+    // code here can NOT use carName
+</script>
+
+
+
+
+<!-- *Block Scope* -->
+<!-- Variables declared with the "var" keyword can not have Block Scope -->
+<!-- Variables declared inside a block {} can be accessed from outside the block -->
+<script>
+    {
+        var x = 2;
+    }
+
+    //x can be used here
+</script>
+
+
+<!-- Before ES2015 JavaScript did not have Block Scope -->
+<!-- Variables declared with the "let" keyword can have Block Scope -->
+<!-- Variables declared inside a block {} can not be accessed from outside the block -->
+<script>
+    {
+        let x = 2;
+    }
+
+    //x can NOT be used here
+</script>
+
+
+
+
+<!-- *Redeclaring Variables* -->
+<!-- Redeclaring a variable using the "var" keyword can impose problems -->
+<!-- Redeclaring a variable inside a block will also redeclare the variable outside the block -->
+<script>
+    var x = 10;
+    // Here x is 10
+    {
+        var x = 2;
+        // Here x is 2
+    }
+    // Here x is 2
+</script>
+
+
+<!-- Redeclaring a variable using the "let" keyword can solve this problem -->
+<!-- Redeclaring a variable inside a block will not redeclare the variable outside the block -->
+<script>
+    let x = 10;
+    // Here x is 10
+    {
+        let x = 2;
+        // Here x is 2
+    }
+    // Here x is 10
+</script>
+
+
+
+
+<!-- *Loop Scope* -->
+<!-- Using var in a loop: -->
+<script>
+    var i = 5;
+
+    for (var i = 0; i < 10; i++) {
+        // some statements
+    }
+
+    document.getElementById("demo").innerHTML = i;
+
+    // Here i is 10
+</script>
+
+
+<!-- When let is used to declare the i variable in a loop, the i variable will only be visible within the loop: -->
+<script>
+    let i = 5;
+
+    for (let i = 0; i < 10; i++) {
+        // some statements
+    }
+
+    document.getElementById("demo").innerHTML = i;
+
+    // Here i is 5
+</script>
+
+
+
+
+<!-- *Function Scope* -->
+<!-- Variables declared with "var" and "let" are quite similar when declared inside a function -->
+<!-- They will both have Function Scope: -->
+<script>
+    function myFunction() {
+        var carName = "Volvo";
+    }
+
+    function myFunction2() {
+        let carName = "Mercedes";
+    }
+</script>
+
+
+
+
+<!-- *Global Scope* -->
+<!-- Variables declared with "var" and "let" are quite similar when declared outside a block -->
+<!-- They will both have Global Scope: -->
+<script>
+    var x = 5;
+    let y = 3;
+</script>
+
+
+
+
+<!-- *Global Variables in HTML* -->
+<!-- With JavaScript, the global scope is the JavaScript environment -->
+<!-- In HTML, the global scope is the window object -->
+
+
+<!-- Global variables defined with the "var" keyword belong to the window object: -->
+<script>
+    var carName = "Volvo";
+    
+    // code here can use window.carName
+
+    document.getElementById("demo").innerHTML = "I can display " + window.carName;
+
+    // Result: I can display Volvo   
+</script>
+
+
+<!-- Global variables defined with the "let" keyword do not belong to the window object: -->
+<script>
+    let carName = "Volvo";
+    
+    // code here can NOT use window.carName
+
+    document.getElementById("demo").innerHTML = "I can not display " + window.carName;
+
+    // Result: I can not display undefined   
+</script>
+
+
+
+
+<!-- *Redeclaring* -->
+<!-- Redeclaring a JavaScript variable with "var" is allowed anywhere in a program: -->
+<script>
+    var x = 2;
+    // Now x is 2
+ 
+    var x = 3;
+    // Now x is 3
+</script>
+
+
+<!-- Redeclaring a "var" variable with "let", in the same scope, or in the same block, is not allowed: -->
+<script>
+    var x = 2;         // Allowed
+    let x = 3;         // Not allowed
+
+    {
+        var x = 4;     // Allowed
+        let x = 5;     // Not allowed
+    }
+</script>
+
+
+<!-- Redeclaring a let variable with "let" in the same scope or in the same block, is not allowed: -->
+<script>
+    let x = 2;         // Allowed
+    let x = 3;         // Not allowed
+
+    {
+        let x = 4;     // Allowed
+        let x = 5;     // Not allowed
+    }
+</script>
+
+
+<!-- Redeclaring a "let" variable with "var" in the same scope or in the same block, is not allowed: -->
+<script>
+    let x = 2;         // Allowed
+    var x = 3;         // Not allowed
+
+    {
+        let x = 4;     // Allowed
+        var x = 5;     // Not allowed
+    }
+</script>
+
+
+<!-- Redeclaring a variable with let, in another scope, or in another block, is allowed: -->
+<script>
+    let x = 2;         // Allowed
+
+    {
+        let x = 3;     // Allowed
+    }
+
+    {
+        let x = 4;     // Allowed
+    }
+
+    document.getElementById("demo").innerHTML = x;   // Output: 2
+</script>
+
+
+
+
+<!-- *Hoisting* -->
+<!-- You can use a "var" variable before it is declared: -->
+<script>
+    carName = "Volvo";          // You can use carName here
+    var carName;
+</script>-->
+
+
+<!-- Using a let variable before it is declared will result in a ReferenceError: -->
+<script>
+    carName = "Volvo";          // You can NOT use carName here
+    let carName = "Volvo";
+</script>
+
+
+
+
+
+
+
+
+<!-- __________ JS CONST __________ -->
+<!-- Variables defined with "const" behave like "let" variables, except they cannot be reassigned: -->
+<script>
+    const PI = 3.141592653589793;
+    PI = 3.14;        // This will give an error
+    PI = PI + 10;     // This will also give an error
+</script>
+
+
+
+
+<!-- *Block Scope* -->
+<!-- Declaring a variable with "const" is similar to "let" when it comes to Block Scope -->
+<script>
+    var x = 10;
+    // Here x is 10
+    {
+        const x = 2;
+        // Here x is 2
+    }
+    // Here x is 10
+</script>
+
+
+
+
+<!-- *Assigned When Declared* -->
+<!-- JavaScript const variables must be assigned a value when they are declared: -->
+<script>
+    const PI;
+    PI = 3.14159265359;           // Incorrect
+</script>
+
+
+<script>
+    const PI = 3.14159265359;     // Correct
+</script>
+
+
+
+
+<!-- *Not Real Constants* -->
+<!-- The keyword "const" is a little misleading -->
+<!-- It does NOT define a constant value. It defines a constant reference to a value -->
+<!-- Because of this, we cannot change constant primitive values, but we can change the properties of constant objects -->
+
+
+
+
+<!-- *Primitive Values* -->
+<!-- If we assign a primitive value to a constant, we cannot change the primitive value:  -->
+<script>
+    const PI = 3.141592653589793;
+    PI = 3.14;        // This will give an error
+    PI = PI + 10;     // This will also give an error
+</script>
+
+
+
+
+<!-- *Constant Objects Can Change* -->
+<!-- NOT: Property değiştirilebilir; object değiştirilemez -->
+
+
+<!-- You can change the properties of a constant object: -->
+<script>
+    // Create an object:
+    const car = {type:"Fiat", model:"500", color:"white"};    
+
+    car.color = "red";        // Change a property
+    car.owner = "Johnson";    // Add a property
+    
+    document.getElementById("demo").innerHTML = car.owner + " has " + car.color + " car"; 
+
+    // Result: Johnson has red car
+</script>
+
+
+<!-- But you can NOT reassign a constant object: -->
+<script>
+    try {
+        const car = {type:"Fiat", model:"500", color:"white"};
+        car = {type:"Volvo", model:"EX60", color:"red"};     // Bu şekilde değişim yapamayız
+    }   
+
+    catch(err) {
+        document.getElementById("demo").innerHTML = err;
+    }
+
+    // Result: TypeError: Assignment to constant variable.
+</script>
+
+
+
+
+<!-- *Constant Arrays Can Change* -->
+<!-- NOT: Array'in elemanları değiştirilebilir; fakat yeniden tanımlanamaz -->
+
+
+<!-- You can change the elements of a constant array:-->
+<script>
+    const cars = ["Saab", "Volvo", "BMW"];
+    
+    cars[0] = "Toyota";     // Changing an element
+    cars.push("Audi");      // Adding an element
+
+    document.getElementById("demo").innerHTML = cars; 
+</script>
+
+
+<!-- But you can NOT reassign a constant array: -->
+<script>
+    try {
+        const cars = ["Saab", "Volvo", "BMW"];
+        cars = ["Toyota", "Volvo", "Audi"];
+    }
+
+    catch(err) {
+        document.getElementById("demo").innerHTML = err;
+    }
+</script>
+
+
+
+
+<!-- *Redeclaring* -->
+<!-- Redeclaring a JavaScript "var" variable is allowed anywhere in a program: -->
+<script>
+    var x = 2;     // Allowed
+    var x = 3;     // Allowed
+    x = 4;         // Allowed
+</script>
+
+
+<!-- Redeclaring or reassigning an existing "var" or "let" variable to const in the same scope, or in the same block, is not allowed: -->
+<script>
+    var x = 2;           // Allowed
+    const x = 2;         // Not allowed
+    
+    {
+        let x = 2;       // Allowed
+        const x = 2;     // Not allowed
+    }
+</script>
+
+
+<!-- Redeclaring or reassigning an existing "const" variable in the same scope or in the same block, is not allowed: -->
+<script>
+    const x = 2;         // Allowed
+    const x = 3;         // Not allowed
+    x = 3;               // Not allowed
+    var x = 3;           // Not allowed
+    let x = 3;           // Not allowed
+    
+    {
+        const x = 2;     // Allowed
+        const x = 3;     // Not allowed
+        x = 3;           // Not allowed
+        var x = 3;       // Not allowed
+        let x = 3;       // Not allowed
+    }
+</script>
+
+
+<!-- Redeclaring a variable with "const" in another scope or in another block, is allowed: -->
+<script>
+    const x = 2;       // Allowed
+
+    {
+        const x = 3;   // Allowed
+    }
+
+    {
+        const x = 4;   // Allowed
+    }
+</script>
+
+
+
+
+<!-- *Hoisting* -->
+<!-- You can use a "var" variable before it is declared: -->
+<script>
+    carName = "Volvo";          // You can use carName here
+    var carName;
+</script>
+
+
+<!-- A "const" variable cannot be used before it is declared: -->
+<script>
+    carName = "Volvo";          // You can NOT use carName here
+    const carName = "Volvo";
+</script>
+
+
+
+
+
+<!-- w3schools'da Debugging, Style Guide, Best Practices, Mistakes, Performance konularına bak. Bunları yazmadım fakat önemli-->
